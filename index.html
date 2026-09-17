@@ -159,7 +159,7 @@
 
     function setTags(prefix,active){document.querySelectorAll(`[id^="${prefix}-tag-"]`).forEach((tag,index)=>tag.classList.toggle('current',index+1===active))}
     function renderWorkflowCard(prefix,activeIndex,title,copy,kicker){const hero=document.getElementById(`${prefix}-hero`);const workflow=document.getElementById(`${prefix}-workflow`);if(!hero||!workflow)return;hero.classList.add('workflow-active');workflow.classList.remove('complete');workflow.querySelector('.daily-workflow-head span').textContent=kicker;document.getElementById(`${prefix}-workflow-title`).textContent=title;document.getElementById(`${prefix}-workflow-copy`).textContent=copy;workflow.querySelectorAll('.daily-workflow-step').forEach((step,index)=>{step.classList.toggle('done',index<activeIndex);step.classList.toggle('active',index===activeIndex);step.querySelector('b').textContent=index<activeIndex?'✓':index+1});setTags(prefix,activeIndex+1)}
-    function showWorkflowRunning(prefix){renderWorkflowCard(prefix,3,'吸乳进行中','系统将持续监测佩戴与气密状态，如有异常会及时提醒。','准备已完成')}
+    function showWorkflowRunning(prefix){renderWorkflowCard(prefix,3,'吸乳进行中','佩戴与气密状态持续监测中','准备已完成')}
     function showToast(prefix,copy){const toast=document.getElementById(`${prefix}-toast`);document.getElementById(`${prefix}-toast-copy`).textContent=copy;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
     function setLevelDisplay(prefix,level){document.getElementById(`${prefix}-base-level`).textContent=level;document.getElementById(`${prefix}-base-level-main`).textContent=level}
 
