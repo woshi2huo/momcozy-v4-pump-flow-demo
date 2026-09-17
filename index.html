@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Momcozy V4 首次使用与日常吸乳流程</title>
+  <style>
+    :root {
+      --page:#f3f2f1;--phone:#fff1f5;--card:#fff;--ink:#272326;--muted:#7d767a;--line:#eee7e9;
+      --pink:#d87591;--pink-soft:#fff0f4;--brand:#8f0027;--brand-2:#c40039;
+      --green:#29946d;--green-soft:#ebf7f2;--amber:#bd6f2b;--amber-soft:#fff3e7;--danger:#a93643;--danger-soft:#fff0f1;
+      --shadow:0 28px 78px rgba(44,33,37,.17);
+    }
+    *{box-sizing:border-box}body{margin:0;min-width:320px;color:var(--ink);background:var(--page);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}button{font:inherit}
+    .canvas{min-height:100vh;padding:34px 32px 48px}.top{width:min(1040px,100%);margin:0 auto 26px;display:flex;align-items:flex-end;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:10px;color:var(--brand);font-size:13px;font-weight:820;letter-spacing:.04em}.brand i{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--brand);font-style:normal}.title{text-align:right}.title h1{margin:0;font-size:29px;letter-spacing:-.035em}.title p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.55}
+    .comparison{width:min(1040px,100%);margin:0 auto;display:grid;grid-template-columns:420px 420px;gap:82px;justify-content:center}.version-head{height:86px;padding:0 10px 14px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px}.version-kicker{color:var(--brand-2);font-size:10px;font-weight:850;letter-spacing:.13em}.version-head h2{margin:5px 0 0;font-size:20px}.version-head p{margin:0;max-width:190px;color:var(--muted);font-size:10px;line-height:1.5;text-align:right}.flow-tags{margin-top:8px;display:flex;gap:5px;flex-wrap:wrap}.flow-tags span{padding:5px 7px;border-radius:999px;color:#7f7478;background:#fff;font-size:8px;border:1px solid var(--line)}.flow-tags .current{color:var(--brand);border-color:#f0c8d3;background:#fff2f6;font-weight:750}
+    .phone-wrap{display:flex;justify-content:center}.phone{position:relative;width:375px;height:956px;overflow:hidden;border-radius:44px;background:var(--phone);box-shadow:var(--shadow)}
+    .status{height:42px;padding:13px 35px 0;display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:760}.status-right{display:flex;gap:6px;align-items:center;font-size:11px}.bars{height:12px;display:flex;align-items:flex-end;gap:2px}.bars i{width:3px;border-radius:2px;background:#111}.bars i:nth-child(1){height:4px}.bars i:nth-child(2){height:7px}.bars i:nth-child(3){height:10px}.battery{width:20px;height:10px;border:1.5px solid #111;border-radius:3px;position:relative}.battery:before{content:"";position:absolute;inset:2px;width:12px;background:#111;border-radius:1px}
+    .appbar{height:54px;padding:4px 17px 8px;display:flex;align-items:center;justify-content:space-between}.back{width:34px;height:34px;border:0;background:transparent;font-size:27px}.app-title{font-size:18px;font-weight:700}.app-actions{display:flex;gap:10px}.round{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(70,59,63,.15);border-radius:50%;background:rgba(255,255,255,.72);font-size:16px;font-weight:760}
+    .hero{height:224px;padding:4px 0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center}.device-meta{height:18px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:5px;color:#a29b9e;font-size:9px}.bt-symbol{font-size:13px;line-height:1;transform:rotate(-10deg)}.mini-battery{position:relative;width:17px;height:9px;border:1.3px solid #aaa3a6;border-radius:2px}.mini-battery:after{content:"";position:absolute;right:-3px;top:2px;width:2px;height:3px;border-radius:0 1px 1px 0;background:#aaa3a6}.mini-battery i{position:absolute;left:2px;top:2px;width:8px;height:3px;border-radius:1px;background:#aaa3a6}.pump-visual{width:224px;height:142px;display:grid;place-items:center}.hero img{width:218px;height:138px;object-fit:contain;mix-blend-mode:multiply}.pump-time{margin-top:2px;display:flex;align-items:center;justify-content:center;gap:5px;color:#777277;font-size:12px}.clock-icon{position:relative;width:12px;height:12px;border:1.4px solid currentColor;border-radius:50%}.clock-icon:before{content:"";position:absolute;left:5px;top:2px;width:1.2px;height:4px;border-radius:2px;background:currentColor}.clock-icon:after{content:"";position:absolute;left:5px;top:5px;width:3px;height:1.2px;border-radius:2px;background:currentColor;transform:rotate(18deg);transform-origin:left center}
+    .daily-workflow{display:none;width:327px;padding:18px 18px 16px;border:1px solid #f0dfe4;border-radius:22px;background:rgba(255,255,255,.9);box-shadow:0 13px 30px rgba(143,0,39,.08)}.hero.workflow-active .device-meta,.hero.workflow-active .pump-visual,.hero.workflow-active .pump-time{display:none}.hero.workflow-active .daily-workflow{display:block}.daily-workflow-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.daily-workflow-head span{color:var(--pink);font-size:9px;font-weight:830;letter-spacing:.04em}.daily-workflow-head strong{font-size:12px}.daily-workflow-steps{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);position:relative}.daily-workflow-steps:before{content:"";position:absolute;top:14px;left:12.5%;right:12.5%;height:2px;background:#e8e3e5}.daily-workflow-step{position:relative;z-index:1;color:#938b8f;font-size:8px;text-align:center}.daily-workflow-step b{width:28px;height:28px;margin:0 auto 7px;display:grid;place-items:center;border-radius:50%;color:#847c80;background:#eee9eb;font-size:10px}.daily-workflow-step.active{color:var(--brand-2);font-weight:760}.daily-workflow-step.active b{color:#fff;background:var(--brand-2);box-shadow:0 0 0 4px #fde9ef}.daily-workflow-step.done{color:var(--green);font-weight:760}.daily-workflow-step.done b{color:#fff;background:var(--green)}.daily-workflow-status{margin-top:16px;padding:10px 12px;display:flex;align-items:center;gap:8px;border-radius:13px;color:#756d71;background:#f8f5f6;font-size:9px}.daily-workflow-status i{width:7px;height:7px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px #fde9ef;animation:pulse 1s ease-in-out infinite}.daily-workflow.complete .daily-workflow-status i{background:var(--green);box-shadow:none;animation:none}@keyframes pulse{50%{opacity:.45;transform:scale(.82)}}
+    .content{padding:0 16px 92px;display:flex;flex-direction:column;gap:10px}.saved-card{padding:13px 15px;border:1px solid #f0dfe4;border-radius:17px;background:rgba(255,255,255,.86)}.saved-head{display:flex;justify-content:space-between;align-items:center}.saved-head strong{font-size:12px}.saved-head button{border:0;color:var(--pink);background:transparent;font-size:9px;font-weight:740}.saved-items{margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:8px}.saved-item{padding:9px 10px;border-radius:12px;background:#fff4f7}.saved-item span{display:block;color:#93898d;font-size:8px}.saved-item strong{display:block;margin-top:3px;color:var(--brand);font-size:12px}
+    .control-card{padding:15px 17px;border-radius:19px;background:#fff}.control-head{display:flex;align-items:center;justify-content:space-between}.control-head h3{margin:0;font-size:16px}.switch{color:var(--pink);font-size:10px;font-weight:700}.mode-copy{margin:5px 0 11px;color:#a09a9d;font-size:10px;line-height:1.4}.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;text-align:center}.mode-icon{position:relative;width:39px;height:39px;margin:0 auto 4px;display:grid;place-items:center;border-radius:8px;color:var(--pink);background:#fff2f5;font-size:0}.mode.active .mode-icon{color:#fff;background:var(--pink)}.mode>span{color:#8d8589;font-size:8px}.mode.active>span{color:var(--pink)}.mode:nth-child(1) .mode-icon:before{content:"♡";font-size:22px;line-height:1}.mode:nth-child(2) .mode-icon:before{content:"";width:12px;height:12px;margin-top:-2px;border:1.7px solid currentColor;border-radius:55% 55% 55% 0;transform:rotate(-45deg)}.mode:nth-child(3) .mode-icon:before,.mode:nth-child(3) .mode-icon:after{content:"";position:absolute;top:12px;width:13px;height:13px;border:1.7px solid currentColor;border-radius:50%}.mode:nth-child(3) .mode-icon:before{left:8px}.mode:nth-child(3) .mode-icon:after{right:8px}.mode:nth-child(4) .mode-icon:before{content:"≋";font-size:27px;font-weight:700;line-height:1;transform:scaleX(.9)}
+    .level-head{display:flex;align-items:baseline;gap:16px}.level-head strong{font-size:16px}.level-head span{color:#777;font-size:12px}.level-strip{height:47px;margin-top:11px;display:grid;grid-template-columns:48px 1fr 48px;align-items:center;border-radius:999px;background:#f6f5f5;text-align:center}.level-strip button{border:0;background:transparent;color:#777;font-size:25px;cursor:pointer}.level-strip strong{color:var(--pink);font-size:14px}.level-strip small{color:#777;font-size:9px}.mcv-shortcut{margin-top:11px;padding-top:10px;border-top:1px solid #f1eaec;display:flex;align-items:center;justify-content:space-between;gap:8px}.mcv-shortcut-copy{min-width:0;display:flex;align-items:center;gap:7px}.mcv-chip{padding:4px 6px;border-radius:7px;color:#fff;background:var(--brand-2);font-size:8px;font-weight:850;letter-spacing:.03em}.mcv-shortcut-copy strong{font-size:10px;white-space:nowrap}.mcv-status{color:#999;font-size:8px;white-space:nowrap}.mcv-status.pending{color:var(--amber);font-weight:750}.mcv-entry{padding:5px 0;border:0;color:var(--brand-2);background:transparent;font-size:9px;font-weight:750;white-space:nowrap;cursor:pointer}.light-head{display:flex;justify-content:space-between;align-items:center}.light-head strong{font-size:15px}.toggle{width:39px;height:23px;padding:2px;display:flex;justify-content:flex-end;border-radius:999px;background:var(--pink)}.toggle i{width:19px;height:19px;border-radius:50%;background:#fff}.light-tabs{height:39px;margin-top:13px;padding:3px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;border-radius:999px;background:#f6f5f5;color:#777;font-size:9px;text-align:center}.light-tabs .active{padding:9px 0;border-radius:999px;color:#fff;background:var(--pink)}
+    .persistent{display:none;padding:12px 14px;border:1px solid #dcece5;border-radius:16px;background:rgba(255,255,255,.9)}.persistent.show{display:block}.persistent-head{display:flex;align-items:center;justify-content:space-between}.persistent-head strong{font-size:11px}.live{color:#8f878b;font-size:8px;font-weight:650}.persistent-row{margin-top:7px;display:flex;align-items:center;justify-content:space-between;color:var(--green);font-size:9px;font-weight:700}.persistent-row span{display:flex;align-items:center;gap:5px}.persistent-row i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+    .main-cta{position:absolute;z-index:2;left:27px;right:27px;bottom:17px;height:56px;border:0;border-radius:999px;color:#fff;background:var(--brand);box-shadow:0 12px 26px rgba(143,0,39,.22);font-size:15px;font-weight:760;cursor:pointer}.main-cta:disabled{cursor:default;opacity:.72}.main-cta.running{right:74px;background:linear-gradient(90deg,#ffb7c4,#f09bab);color:#7d0024;opacity:1}.pause{display:none;position:absolute;z-index:3;right:18px;bottom:17px;width:55px;height:56px;border:0;border-radius:50%;color:#fff;background:linear-gradient(145deg,#9c002e,#ca536c);font-size:17px}.pause.show{display:block}
+    .scrim{position:absolute;z-index:5;inset:0;background:rgba(65,45,53,.19);backdrop-filter:blur(.7px)}.scrim.hidden{display:none}.sheet{position:absolute;z-index:6;left:16px;right:16px;bottom:16px;overflow:hidden;border-radius:28px;background:#fff;box-shadow:0 24px 50px rgba(40,28,33,.22)}.sheet.hidden{display:none}.sheet.onboarding-flow{height:524px}.sheet.onboarding-flow .sheet-inner{height:100%;display:flex;flex-direction:column}.sheet.onboarding-flow .steps{flex:0 0 auto;margin-right:36px}.sheet.onboarding-flow .close{right:12px;width:36px;height:36px;font-size:22px}.sheet.onboarding-flow #first-fit-pass,.sheet.onboarding-flow #first-mcv-confirm,.sheet.onboarding-flow #first-mcv-guide-continue,.sheet.onboarding-flow #first-continue-confirm{flex:0 0 auto;margin-top:auto}.sheet.onboarding-flow .flange-actions .primary,.sheet.onboarding-flow .flange-actions .secondary{height:48px}.sheet-inner{padding:18px 26px 25px}.close{position:absolute;top:14px;right:14px;width:38px;height:38px;display:grid;place-items:center;border:0;border-radius:50%;color:#665e62;background:#f8f5f6;font-size:24px}
+    .steps{margin:5px 0 21px;display:grid;grid-template-columns:repeat(4,1fr);position:relative}.steps:before{content:"";position:absolute;top:14px;left:12.5%;right:12.5%;height:2px;background:#e8e3e5}.step{position:relative;z-index:1;color:#8d878a;font-size:8px;text-align:center}.step b{width:28px;height:28px;margin:0 auto 7px;display:grid;place-items:center;border-radius:50%;color:#847c80;background:#eee9eb;font-size:10px}.step.active{color:var(--brand-2);font-weight:760}.step.active b{color:#fff;background:var(--brand-2);box-shadow:0 0 0 4px #fde9ef}.step.done{color:var(--green);font-weight:760}.step.done b{color:#fff;background:var(--green)}
+    .kicker{color:var(--pink);font-size:9px;font-weight:830;letter-spacing:.04em;text-transform:uppercase}.sheet h3{margin:7px 0 5px;font-size:22px;line-height:1.2;letter-spacing:-.025em}.sheet-copy{margin:0;color:var(--muted);font-size:10px;line-height:1.55}.continue-summary{margin-top:16px;padding:15px;display:flex;align-items:flex-start;gap:12px;border-radius:17px;background:var(--green-soft)}.continue-summary i{flex:0 0 auto;width:31px;height:31px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--green);font-style:normal;font-weight:800}.continue-summary strong{display:block;color:#276f58;font-size:11px}.continue-summary span{display:block;margin-top:4px;color:#678078;font-size:9px;line-height:1.5}.countdown-note{margin-top:10px;color:#958d91;font-size:8px;text-align:center}.flanges{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.flange{padding:14px;border:1px solid #f0e6e9;border-radius:17px;background:#fff7f9}.flange-top{display:flex;justify-content:space-between;color:#8b8387;font-size:9px}.edit{color:var(--pink);font-weight:740}.flange-value{margin-top:8px;color:var(--brand)}.flange-value strong{font-size:25px}.flange-value span{font-size:10px;font-weight:650}.note{margin-top:11px;padding:11px 12px;border-radius:14px;color:#746b6f;background:#f8f5f6;font-size:9px;line-height:1.5}.primary{width:100%;height:48px;margin-top:16px;border:0;border-radius:999px;color:#fff;background:var(--brand-2);font-size:13px;font-weight:760;cursor:pointer}.secondary{width:100%;margin-top:10px;border:0;color:var(--brand-2);background:transparent;font-size:9px;font-weight:700;cursor:pointer}
+    .flange-step-inner{height:100%;display:flex;flex-direction:column}.flange-image-wrap{position:relative;margin-top:2px}.flange-counter{position:absolute;z-index:1;top:10px;right:10px;padding:5px 8px;border-radius:999px;color:var(--brand);background:#fff0f4;font-size:8px;font-weight:800}.flange-image-frame{height:145px;overflow:hidden;border:1px solid #eee5e8;border-radius:17px;background:#faf8f9}.flange-image-frame img{width:100%;height:100%;display:block;object-fit:contain}.flange-slide-copy{min-height:66px;margin-top:10px}.flange-slide-copy strong{display:block;font-size:11px;line-height:1.35}.flange-slide-copy p{margin:5px 0 0;color:#81797d;font-size:8.5px;line-height:1.45}.flange-dots{height:10px;display:flex;align-items:center;justify-content:center;gap:6px}.flange-dot{width:6px;height:6px;padding:0;border:0;border-radius:50%;background:#dfd8db}.flange-dot.active{width:18px;border-radius:999px;background:var(--pink)}.flange-actions{margin-top:auto;display:grid;grid-template-columns:96px 1fr;gap:8px}.flange-actions.single{grid-template-columns:1fr}.flange-actions .primary,.flange-actions .secondary{height:46px;margin:0;border-radius:999px}.flange-actions .secondary{border:1px solid #eadde1;background:#fff7f9}.flange-actions.single .secondary{display:none}.help-links{margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px}.help-links button{padding:0;border:0;color:var(--brand-2);background:transparent;font-size:9px;font-weight:700;cursor:pointer}.help-links i{width:1px;height:10px;background:#eadde1}
+    .fit-grid{margin-top:17px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.fit-box{padding:15px 10px;border-radius:17px;background:var(--pink-soft);text-align:center}.fit-circle{width:48px;height:48px;margin:0 auto 8px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--pink);font-size:16px;font-weight:750}.fit-box strong{display:block;color:var(--pink);font-size:11px}.fit-box small{display:block;margin-top:4px;color:#8d8589;font-size:8px}.fit-box.passed{background:var(--green-soft)}.fit-box.passed .fit-circle{background:var(--green)}.fit-box.passed strong{color:var(--green)}.fit-progress{height:5px;margin:21px 0 10px;overflow:hidden;border-radius:99px;background:#e7dfe2}.fit-progress i{display:block;width:0;height:100%;border-radius:inherit;background:var(--pink)}.fit-progress i.running{width:100%;transition:width 5s linear}.fit-progress i.passed{background:var(--green)}.fit-footer{color:#70686c;font-size:9px;text-align:center}.fit-auto-status{height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;color:var(--brand-2);background:#fff0f4;font-size:10px;font-weight:760}.fit-auto-status i{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px #fbdde6;animation:pulse 1s ease-in-out infinite}.fit-auto-status span{min-width:30px;color:#8d8589;font-size:9px;font-weight:650}.fit-auto-status b{color:var(--brand-2);font-size:11px;font-variant-numeric:tabular-nums}.fit-auto-status.passed{color:#276f58;background:var(--green-soft)}.fit-auto-status.passed i{width:20px;height:20px;display:grid;place-items:center;color:#fff;background:var(--green);box-shadow:none;animation:none;font-style:normal}.fit-auto-status.passed span{color:#678078}
+    .mcv-help-link{margin-top:8px;padding:0;border:0;color:var(--brand-2);background:transparent;font-size:9px;font-weight:760;cursor:pointer}.mcv-help-link span{margin-left:2px;font-size:13px;vertical-align:-1px}.mcv-panel{margin-top:12px;padding:15px;border-radius:18px;background:#fff0f4}.mcv-label{color:#b14a67;font-size:9px;font-weight:800}.mcv-value{margin-top:5px;color:var(--brand-2);line-height:1}.mcv-value strong{font-size:48px;letter-spacing:-.06em}.mcv-value span{margin-left:4px;color:#70686c;font-size:10px}.adjust-list{margin-top:13px;display:flex;flex-direction:column;gap:9px}.adjust-row{min-height:60px;padding:8px 11px;display:grid;grid-template-columns:46px 1fr;align-items:center;gap:11px;border-radius:14px}.adjust-row.green{background:var(--green-soft)}.adjust-row.peach{background:#fff0e9}.mcv-btn{width:46px;height:46px;border:0;border-radius:13px;color:var(--brand-2);background:#fff;font-size:24px;font-weight:650;cursor:pointer}.mcv-btn.plus{color:#fff;background:var(--brand-2)}.adjust-copy strong{display:block;font-size:10px}.adjust-copy span{display:block;margin-top:3px;color:#766f72;font-size:8px;line-height:1.4}.guide-nav{height:38px;margin:0 44px 10px 0;display:flex;align-items:center;gap:10px}.guide-back{width:34px;height:34px;display:grid;place-items:center;border:0;border-radius:50%;color:var(--ink);background:#f7f3f5;font-size:23px;cursor:pointer}.guide-nav strong{font-size:13px}.paused-badge{margin-top:10px;padding:9px 11px;border-radius:12px;color:#87556a;background:#fff0f4;font-size:9px;font-weight:700}.guide-cards{margin-top:13px;display:flex;flex-direction:column;gap:8px}.guide-card{padding:10px 11px;display:grid;grid-template-columns:28px 1fr;gap:9px;border-radius:13px;background:#f8f5f6}.guide-card b{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--brand-2);font-size:10px}.guide-card strong{display:block;font-size:10px}.guide-card span{display:block;margin-top:3px;color:#746d70;font-size:8px;line-height:1.4}.guide-safety{margin-top:10px;padding:10px 11px;border-radius:13px;color:#875634;background:var(--amber-soft);font-size:8px;line-height:1.45}
+    .sync-compare{margin-top:15px;display:grid;grid-template-columns:1fr 24px 1fr;align-items:center;gap:7px}.sync-level{padding:13px 10px;border-radius:15px;background:#f8f5f6;text-align:center}.sync-level.new{background:var(--green-soft)}.sync-level span{display:block;color:#8a8185;font-size:8px}.sync-level strong{display:block;margin-top:5px;color:var(--brand);font-size:22px}.sync-arrow{color:#aaa1a5;font-size:18px;text-align:center}.sync-note{margin-top:11px;padding:10px 11px;border-radius:13px;color:#7a6f73;background:#f8f5f6;font-size:8px;line-height:1.45}.sync-actions{display:flex;flex-direction:column}.sync-actions .primary{margin-top:14px}.sync-actions .secondary{margin-top:8px}
+    .routine-success{margin-top:16px;padding:17px;border:1px solid #dcece5;border-radius:18px;background:var(--green-soft)}.routine-success .check{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--green);font-size:20px}.routine-success h4{margin:10px 0 4px;font-size:17px}.routine-success p{margin:0;color:#6e7773;font-size:9px;line-height:1.5}.history-level{margin-top:12px;padding:13px 14px;display:flex;align-items:center;justify-content:space-between;border-radius:15px;background:#fff}.history-level span{color:#7b7477;font-size:9px}.history-level strong{color:var(--brand);font-size:21px}.auto-note{margin-top:10px;color:#777074;font-size:8px;line-height:1.5;text-align:center}
+    .toast{position:absolute;z-index:10;left:31px;right:31px;bottom:88px;padding:13px 15px;display:flex;align-items:center;gap:9px;border-radius:17px;color:#fff;background:rgba(68,10,28,.95);box-shadow:0 15px 32px rgba(68,10,28,.25);font-size:10px;font-weight:650;opacity:0;transform:translateY(14px);transition:.2s ease;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}.toast i{width:23px;height:23px;display:grid;place-items:center;border-radius:50%;color:var(--brand);background:#fff;font-style:normal}
+    .reset-row{margin-top:15px;text-align:center}.reset{border:0;color:#7b7377;background:transparent;font-size:9px;text-decoration:underline;cursor:pointer}
+    .summary{width:min(1040px,100%);margin:25px auto 0;padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:50px;border:1px solid #e4dfe0;border-radius:18px;background:rgba(255,255,255,.72);font-size:11px;line-height:1.6;color:#665f62}.summary strong{display:block;margin-bottom:3px;color:#272326}.summary ul{margin:6px 0 0;padding-left:17px}
+    @media(max-width:930px){.canvas{padding:24px 16px 40px}.top{align-items:flex-start;flex-direction:column}.title{text-align:left}.comparison{grid-template-columns:420px;gap:38px}.summary{grid-template-columns:1fr;gap:16px}}
+    .mcv-shortcut{align-items:flex-start;gap:10px}.mcv-shortcut-main{min-width:0;display:grid;gap:5px}.mcv-shortcut-copy strong{font-size:9px}.mcv-relation{color:#989094;font-size:8px;line-height:1.45}.mcv-entry{padding-top:4px}
+    .mode{cursor:pointer}.mode.is-disabled{pointer-events:none;opacity:.5}.device-meta.is-offline{color:#b14b52}.connection-state{margin-left:2px;padding:2px 5px;border-radius:999px;background:#f5f1f2;font-weight:700}.connection-state.syncing{color:#8a6a75;background:#fff0f4}.connection-state.offline{color:#a33c45;background:#fff0f0}
+    .level-strip.is-busy button,.level-strip.is-locked button{pointer-events:none;opacity:.35}.level-command{min-height:17px;margin-top:6px;color:#8b8286;font-size:8px;line-height:1.4;text-align:center}.level-command:empty{display:none}.level-command.adjusting{color:#9a4961}.level-command.success{color:var(--green)}.level-command.error{color:#a54b34}.level-command.syncing{color:#7f7076}
+    .mcv-command-state{min-height:15px;margin-top:8px;color:#8c7780;font-size:8px;font-weight:700;text-align:center}.mcv-command-state.success{color:var(--green)}.mcv-command-state.error{color:#a54b34}.mcv-btn:disabled{cursor:default;opacity:.45}
+    .persistent.has-warning{border-color:#efd4b7;background:#fffaf4}.persistent.is-checking{border-color:#e5dfe1}.persistent-row span{transition:.2s ease}.persistent-row span.is-checking{color:#8e878a}.persistent-row span.is-checking i{background:#aaa3a6}.persistent-row span.is-abnormal{color:var(--amber)}.persistent-row span.is-abnormal i{background:var(--amber)}.wear-alert{display:none;padding:10px 12px;border:1px solid #efd7bd;border-radius:14px;color:#80532f;background:var(--amber-soft);font-size:8px;line-height:1.45}.wear-alert.show{display:block}.wear-alert.is-checking{border-color:#e5dfe1;color:#756d71;background:#f8f5f6}.wear-alert strong{display:block;margin-bottom:2px;font-size:9px}
+    .wear-alert.leak-warning{padding:12px}.wear-alert-head{display:flex;align-items:flex-start;gap:9px}.wear-alert-head>i{flex:0 0 auto;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--amber);font-style:normal;font-size:12px;font-weight:850}.wear-alert-head strong{margin:0;color:#75471f;font-size:10px}.wear-alert-head span{display:block;margin-top:2px;color:#8b6647;font-size:8px}.wear-alert.leak-warning p{margin:8px 0 0;color:#805b3b;font-size:8px;line-height:1.45}.wear-alert-actions{margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:7px}.wear-alert-actions button{height:31px;border:1px solid #e6bd95;border-radius:999px;color:#80532f;background:#fff;font-size:8px;font-weight:750;cursor:pointer}.wear-alert-actions .primary-action{color:#fff;border-color:var(--amber);background:var(--amber)}.wear-alert.critical{border-color:#efc7cb;color:#7f3138;background:var(--danger-soft)}.persistent.is-danger{border-color:#e9b9bf;background:#fff7f8}.persistent.is-danger .persistent-row span.is-abnormal{color:var(--danger)}.persistent.is-danger .persistent-row span.is-abnormal i{background:var(--danger)}
+    .fit-box.is-abnormal{background:var(--amber-soft)}.fit-box.is-abnormal .fit-circle{background:var(--amber)}.fit-box.is-checking{background:#f5f2f3}.fit-box.is-checking .fit-circle{background:#aaa3a6}.fit-auto-status.is-paused{color:#8a5a35;background:var(--amber-soft)}
+    .fit-progress i.abnormal{width:100%;background:var(--amber);transition:none}.fit-auto-status.is-action{cursor:pointer;color:#fff;background:var(--brand-2)}.fit-auto-status.is-action i{width:20px;height:20px;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.18);box-shadow:none;animation:none;font-style:normal}.fit-auto-status.is-action span{color:rgba(255,255,255,.82)}
+    .pause.is-paused{color:#7d0024;background:#ffd3dc}.mcv-shortcut.is-disabled{opacity:.58}.mcv-shortcut.is-disabled .mcv-entry{pointer-events:none}.safety-mark{width:54px;height:54px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;color:#fff;background:#b63c45;font-size:28px;font-weight:850}.safety-mark.leak-stop{background:var(--danger);box-shadow:0 0 0 8px var(--danger-soft)}.safety-list{margin-top:13px;padding:12px 13px;border-radius:15px;color:#763b3f;background:#fff0f0;font-size:9px;line-height:1.55}.safety-list strong{display:block;margin-bottom:3px;font-size:10px}.stop-result{margin-top:14px;padding:13px 14px;display:flex;align-items:flex-start;gap:10px;border:1px solid #efc7cb;border-radius:15px;background:var(--danger-soft)}.stop-result i{flex:0 0 auto;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--danger);font-style:normal;font-weight:850}.stop-result strong{display:block;color:#7b2d35;font-size:10px}.stop-result span{display:block;margin-top:3px;color:#8c5d62;font-size:8px;line-height:1.45}.recovery-mark{width:46px;height:46px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;color:#7d6e74;background:#f3eef0;font-size:20px}.recovery-status{margin-top:14px;padding:11px 12px;border-radius:14px;color:#756d71;background:#f8f5f6;font-size:9px;text-align:center}
+    .weak-alert-banner{position:absolute;z-index:8;top:98px;left:52px;right:52px;min-height:48px;padding:9px 10px;display:flex;align-items:center;gap:8px;border:1px solid rgba(172,101,121,.18);border-radius:16px;background:rgba(255,255,255,.96);box-shadow:0 10px 28px rgba(63,39,47,.18);opacity:0;transform:translateY(-10px) scale(.98);transition:.2s ease;pointer-events:none}.weak-alert-banner.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}.weak-alert-banner>i{flex:0 0 auto;width:19px;height:19px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--amber);font-style:normal;font-size:10px;font-weight:850}.weak-alert-main{min-width:0;flex:1;border:0;padding:0;background:transparent;text-align:left;cursor:pointer}.weak-alert-main strong{display:block;color:#4a3e42;font-size:9px;line-height:1.2}.weak-alert-main span{display:block;margin-top:3px;overflow:hidden;color:#8b7e83;font-size:7px;line-height:1.3;text-overflow:ellipsis;white-space:nowrap}.weak-alert-chevron{color:#9f8f95;font-size:16px}.weak-alert-close{width:22px;height:22px;border:0;border-radius:50%;color:#8e8287;background:#f7f2f4;font-size:14px;cursor:pointer}
+    .reset-row{display:flex;flex-direction:column;align-items:center;gap:9px}.demo-controls{width:375px;padding:10px 11px;display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;border:1px solid #e4dfe0;border-radius:15px;background:rgba(255,255,255,.72)}.demo-controls>span{width:100%;color:#81777b;font-size:8px;font-weight:800;letter-spacing:.08em}.demo-controls button{padding:6px 8px;border:1px solid #eadde1;border-radius:999px;color:#725f66;background:#fff;font-size:8px;cursor:pointer}.demo-controls button:hover{border-color:#d9a9b7;color:var(--brand)}.demo-controls button:disabled{cursor:default;opacity:.4}.demo-controls button.is-active{color:#fff;border-color:var(--brand);background:var(--brand)}
+    @media(max-width:450px){.demo-controls{width:min(375px,calc(100vw - 32px))}}
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <header class="top"><div class="brand"><i>M</i>MOMCOZY V4</div><div class="title"><h1>首次使用与日常吸乳流程</h1><p>同一设备控制页，分别展示首次设置与日常复用流程。</p></div></header>
+    <section class="comparison">
+      <article>
+        <div class="version-head"><div><div class="version-kicker">VERSION A</div><h2>首次使用</h2><div class="flow-tags"><span class="current" id="first-tag-1">法兰指引</span><span id="first-tag-2">佩戴检测</span><span id="first-tag-3">最佳吸力</span><span id="first-tag-4">继续吸乳</span></div></div><p>首次连接或更换使用者<br>完成必要的个性化设置</p></div>
+        <div class="phone-wrap"><div class="phone" id="first-phone">
+          <div class="status"><span>9:41</span><div class="status-right"><div class="bars"><i></i><i></i><i></i></div><span>5G</span><div class="battery"></div></div></div>
+          <div class="appbar"><button class="back">‹</button><div class="app-title">吸乳器控制</div><div class="app-actions"><span class="round">?</span><span class="round">⚙</span></div></div>
+          <div class="hero"><div class="device-meta"><span class="bt-symbol">⌁</span><span class="mini-battery"><i></i></span><span>60%</span></div><div class="pump-visual"><img src="pump-product-reference.png" alt="Momcozy V4 吸乳器"></div><div class="pump-time"><span class="clock-icon"></span><span id="first-time">上次吸乳：13 分 30 秒</span></div></div>
+          <div class="content"><div class="persistent" id="first-persistent"><div class="persistent-head"><strong>佩戴状态</strong><span class="live">● 全程监测中</span></div><div class="persistent-row"><span><i></i>左侧正常</span><span><i></i>右侧正常</span></div></div><div class="control-card"><div class="control-head"><h3>常规模式</h3><span class="switch">切换 ›</span></div><p class="mode-copy">标准吸乳程序，适合日常使用。</p><div class="modes"><div class="mode active"><div class="mode-icon">♡</div><span>刺激</span></div><div class="mode"><div class="mode-icon">♧</div><span>吸乳</span></div><div class="mode"><div class="mode-icon">◎</div><span>混合</span></div><div class="mode"><div class="mode-icon">≈</div><span>泌乳启动</span></div></div></div><div class="control-card"><div class="level-head"><strong>档位</strong><span id="first-base-level">1</span></div><div class="level-strip"><button>−</button><div><strong id="first-base-level-main">1</strong><small> / 15</small></div><button>＋</button></div></div><div class="control-card"><div class="light-head"><strong>夜灯　<span style="color:#999;font-weight:400">| 明亮</span></strong><span class="toggle"><i></i></span></div><div class="light-tabs"><span>柔和</span><span>暖光</span><span class="active">明亮</span></div></div></div>
+          <button class="main-cta" id="first-main-cta">开始吸乳</button><button class="pause" id="first-pause">Ⅱ</button><div class="scrim" id="first-scrim"></div><div class="sheet" id="first-sheet"></div><div class="toast" id="first-toast"><i>✓</i><span id="first-toast-copy"></span></div>
+        </div></div>
+        <div class="reset-row"><button class="reset" id="first-reset">重新演示首次使用流程</button></div>
+      </article>
+
+      <article>
+        <div class="version-head"><div><div class="version-kicker">VERSION B</div><h2>日常重复吸乳</h2><div class="flow-tags"><span class="current" id="daily-tag-1">法兰指引</span><span id="daily-tag-2">佩戴检测</span><span id="daily-tag-3">最佳吸力</span><span id="daily-tag-4">继续吸乳</span></div></div><p>同一使用者再次吸乳<br>自动复用已保存设置</p></div>
+        <div class="phone-wrap"><div class="phone" id="daily-phone">
+          <div class="status"><span>9:41</span><div class="status-right"><div class="bars"><i></i><i></i><i></i></div><span>5G</span><div class="battery"></div></div></div>
+          <div class="appbar"><button class="back">‹</button><div class="app-title">吸乳器控制</div><div class="app-actions"><span class="round">?</span><span class="round">⚙</span></div></div>
+          <div class="hero" id="daily-hero"><div class="device-meta"><span class="bt-symbol">⌁</span><span class="mini-battery"><i></i></span><span>60%</span></div><div class="pump-visual"><img src="pump-product-reference.png" alt="Momcozy V4 吸乳器"></div><div class="pump-time"><span class="clock-icon"></span><span id="daily-time">上次吸乳：13 分 30 秒</span></div><div class="daily-workflow" id="daily-workflow"><div class="daily-workflow-head"><span>自动准备中</span><strong id="daily-workflow-title">正在确认法兰指引</strong></div><div class="daily-workflow-steps"><div class="daily-workflow-step" data-step="1"><b>1</b>法兰指引</div><div class="daily-workflow-step" data-step="2"><b>2</b>佩戴检测</div><div class="daily-workflow-step" data-step="3"><b>3</b>最佳吸力</div><div class="daily-workflow-step" data-step="4"><b>4</b>继续吸乳</div></div><div class="daily-workflow-status"><i></i><span id="daily-workflow-copy">无需操作，系统将自动完成准备</span></div></div></div>
+          <div class="content"><div class="persistent" id="daily-persistent"><div class="persistent-head"><strong>佩戴状态</strong><span class="live">● 全程监测中</span></div><div class="persistent-row"><span><i></i>左侧正常</span><span><i></i>右侧正常</span></div></div><div class="control-card"><div class="control-head"><h3>常规模式</h3><span class="switch">切换 ›</span></div><p class="mode-copy">标准吸乳程序，适合日常使用。</p><div class="modes"><div class="mode active"><div class="mode-icon">♡</div><span>刺激</span></div><div class="mode"><div class="mode-icon">♧</div><span>吸乳</span></div><div class="mode"><div class="mode-icon">◎</div><span>混合</span></div><div class="mode"><div class="mode-icon">≈</div><span>泌乳启动</span></div></div></div><div class="control-card"><div class="level-head"><strong>档位</strong><span id="daily-base-level">1</span></div><div class="level-strip"><button>−</button><div><strong id="daily-base-level-main">1</strong><small> / 15</small></div><button>＋</button></div></div><div class="control-card"><div class="light-head"><strong>夜灯　<span style="color:#999;font-weight:400">| 明亮</span></strong><span class="toggle"><i></i></span></div><div class="light-tabs"><span>柔和</span><span>暖光</span><span class="active">明亮</span></div></div></div>
+          <button class="main-cta" id="daily-main-cta">开始吸乳</button><button class="pause" id="daily-pause">Ⅱ</button><div class="scrim hidden" id="daily-scrim"></div><div class="sheet hidden" id="daily-sheet"></div><div class="toast" id="daily-toast"><i>✓</i><span id="daily-toast-copy"></span></div>
+        </div></div>
+        <div class="reset-row"><button class="reset" id="daily-reset">重新演示日常吸乳流程</button></div>
+      </article>
+    </section>
+    <aside class="summary"><div><strong>首次使用</strong><ul><li>按步骤完成法兰选择、安装与佩戴，无需在 App 中记录毫米数。</li><li>佩戴检测通过后，完成首次最佳吸力设置。</li><li>吸乳过程中可随时调整档位；调整立即生效，但不会自动覆盖已保存的最佳吸力。</li></ul></div><div><strong>日常重复吸乳</strong><ul><li>自动确认已完成的法兰指引，无需再次操作。</li><li>佩戴检测通过后，自动使用已保存的最佳吸力并开始吸乳。</li><li>新档位稳定使用 1 分钟后，可选择更新最佳吸力或仅本次使用。</li></ul></div></aside>
+  </main>
+  <script>
+    const onboardingSteps=['法兰指引','佩戴检测','最佳吸力','继续吸乳'];
+    const stepMarkup = (active, labels) => `<div class="steps">${labels.map((label,index)=>{const number=index+1;const state=number<active?'done':number===active?'active':'';return `<div class="step ${state}"><b>${number<active?'✓':number}</b>${label}</div>`}).join('')}</div>`;
+    const fitMarkup = (prefix, daily=false) => `<button class="close">×</button><div class="sheet-inner">${daily?'':stepMarkup(2,onboardingSteps)}${daily?'<div class="kicker">佩戴检测</div>':''}<h3>正在检测佩戴与气密状态</h3><p class="sheet-copy">设备已以刺激模式 3 档启动。请保持当前姿势，等待检测完成。</p><div class="fit-grid"><div class="fit-box"><div class="fit-circle">L</div><strong>左侧检测中</strong><small>正在确认佩戴与气密状态</small></div><div class="fit-box"><div class="fit-circle">R</div><strong>右侧检测中</strong><small>正在确认佩戴与气密状态</small></div></div><div class="fit-progress"><i id="${prefix}-fit-progress"></i></div><div class="fit-footer">请保持当前姿势，检测期间无需操作</div><div class="fit-auto-status" id="${prefix}-fit-pass" aria-live="polite"><i></i><strong>自动检测中</strong><span>倒计时 <b id="${prefix}-fit-countdown">5</b> 秒</span></div></div>`;
+    const mcvMarkup = (prefix, level=3, context='onboarding') => {const onboarding=context==='onboarding';return `<button class="close" id="${prefix}-mcv-close">×</button><div class="sheet-inner">${onboarding?stepMarkup(3,onboardingSteps):''}${onboarding?'':'<div class="kicker">最佳吸力</div>'}<h3>${onboarding?'设置你的最佳吸力':'调整最佳吸力'}</h3><p class="sheet-copy">每次仅调整一级，并留意身体感受。如感到疼痛，请立即降低档位或暂停吸乳。</p><button class="mcv-help-link" id="${prefix}-mcv-help">了解最佳吸力及设置方法 <span>›</span></button><div class="mcv-panel"><div class="mcv-label">当前刺激模式档位</div><div class="mcv-value"><strong id="${prefix}-mcv-level">${level}</strong><span>/ 15</span></div><div class="adjust-list"><div class="adjust-row green"><button class="mcv-btn plus" id="${prefix}-mcv-plus">＋</button><div class="adjust-copy"><strong>当前仍然舒适？</strong><span>提高一级，继续观察身体感受。</span></div></div><div class="adjust-row peach"><button class="mcv-btn" id="${prefix}-mcv-minus">−</button><div class="adjust-copy"><strong>出现轻微不适？</strong><span>降低一级，回到舒适档位。</span></div></div></div></div><button class="primary" id="${prefix}-mcv-confirm">${onboarding?'确认并保存当前档位':'保存为新的最佳吸力'}</button>${onboarding?'':`<button class="secondary" id="${prefix}-mcv-cancel">取消调整，继续吸乳</button>`}</div>`};
+    const mcvGuideMarkup = (prefix,level) => `<div class="sheet-inner"><div class="guide-nav"><button class="guide-back" id="${prefix}-mcv-guide-back">‹</button><strong>最佳吸力设置说明</strong></div><div class="kicker">设置原则</div><h3>吸力并非越高越好</h3><p class="sheet-copy">最佳吸力是刺激模式下，在无疼痛或明显不适的前提下，可以持续使用的最高舒适档位。</p><div class="paused-badge">Ⅱ 查看说明期间已暂停调节，当前 ${level} 档设置进度已保留</div><div class="guide-cards"><div class="guide-card"><b>1</b><div><strong>从舒适档位开始</strong><span>保持放松并确认佩戴稳定，当前档位应无疼痛或明显拉扯。</span></div></div><div class="guide-card"><b>2</b><div><strong>每次只提高一级</strong><span>点击“＋”后充分感受变化，确认舒适后再继续提高。</span></div></div><div class="guide-card"><b>3</b><div><strong>轻微不适时降低一级</strong><span>一旦接近不适，请点击“－”返回上一舒适档位。</span></div></div></div><div class="guide-safety">如出现疼痛、麻木、乳头颜色明显变化或佩戴松动，请立即停止设置，并检查法兰尺寸与佩戴状态。</div><button class="primary" id="${prefix}-mcv-guide-continue">返回最佳吸力设置</button></div>`;
+    const mcvSyncMarkup = (prefix,current,saved) => `<button class="close" id="${prefix}-sync-close">×</button><div class="sheet-inner"><div class="kicker">刺激模式 · 当前档位已生效</div><h3>是否将 ${current} 档更新为最佳吸力？</h3><p class="sheet-copy">设备当前以 ${current} 档运行，已保存的最佳吸力仍为 ${saved} 档。当前档位已稳定使用 1 分钟，系统不会自动保存。</p><div class="sync-compare"><div class="sync-level"><span>已保存最佳吸力</span><strong>${saved} 档</strong></div><div class="sync-arrow">→</div><div class="sync-level new"><span>本次稳定档位</span><strong>${current} 档</strong></div></div><div class="sync-note">当前调档已立即生效。只有确认更新后，后续进入刺激模式时才会优先使用该档位。</div><div class="sync-actions"><button class="primary" id="${prefix}-sync-update">更新为 ${current} 档</button><button class="secondary" id="${prefix}-sync-once">仅本次使用</button></div></div>`;
+    const flangeSlides=[
+      {image:'flange-step-1-placeholder.svg',alt:'法兰指引第一步图片占位',title:'Firstly, choose the right insert size',copy:'Leave 1-2 mm of space between your nipple and the insert wall.'},
+      {image:'flange-step-2-placeholder.svg',alt:'法兰指引第二步图片占位',title:'Secondly, Fit the insert into the flange',copy:'Push it in fully and align the marks.'},
+      {image:'flange-step-3-placeholder.svg',alt:'法兰指引第三步图片占位',title:'Thirdly, Position the flange correctly',copy:'Ensure the nipple centered in the flange tunnel, while the flange fits closely against the breast without tightly pressing.'}
+    ];
+    const flangeMarkup = () => `<button class="close">×</button><div class="sheet-inner flange-step-inner">${stepMarkup(1,onboardingSteps)}<h3>正确选择、安装并佩戴法兰</h3><div class="flange-image-wrap"><span class="flange-counter" id="first-flange-counter">1 / 3</span><div class="flange-image-frame"><img id="first-flange-image" src="${flangeSlides[0].image}" alt="${flangeSlides[0].alt}"></div></div><div class="flange-slide-copy"><strong id="first-flange-title">${flangeSlides[0].title}</strong><p id="first-flange-copy">${flangeSlides[0].copy}</p></div><div class="flange-dots" id="first-flange-dots">${flangeSlides.map((_,index)=>`<button class="flange-dot ${index===0?'active':''}" data-index="${index}" aria-label="查看法兰指引第 ${index+1} 页"></button>`).join('')}</div><div class="help-links"><button>查看测量方法</button><i></i><button>查看安装视频</button><i></i><button>无法确认尺寸</button></div><div class="flange-actions single" id="first-flange-actions"><button class="secondary" id="first-flange-back">上一步</button><button class="primary" id="first-flange-next">下一步</button></div></div>`;
+    const continueMarkup = countdown => `<div class="sheet-inner">${stepMarkup(4,onboardingSteps)}<h3>准备流程已完成</h3><p class="sheet-copy">法兰指引、佩戴检测和最佳吸力设置均已完成，设备将继续吸乳。</p><div class="continue-summary"><i>✓</i><div><strong>持续监测佩戴与气密状态</strong><span>吸乳过程中，系统会持续监测左右两侧；如检测到异常，将及时提醒你调整。</span></div></div><div class="countdown-note"><span id="first-continue-countdown">${countdown}</span> 秒后自动关闭</div><button class="primary" id="first-continue-confirm">确认并继续吸乳</button></div>`;
+
+    const DEMO_STABLE_MS=1200;
+    const savedMcv={first:3,daily:4};
+    const runningLevel={first:1,daily:1};
+    const mcvDraft={first:3,daily:4};
+    const syncSuppressed={first:false,daily:false};
+    const syncTimers={first:null,daily:null};
+    const runtime={
+      first:createRuntimeState(3),
+      daily:createRuntimeState(4)
+    };
+
+    function createRuntimeState(level){
+      return {
+        phase:'idle',mode:'stimulation',connected:true,connectionState:'online',deviceLevel:level,
+        wear:{left:'normal',right:'normal'},candidateState:'none',candidateLevel:null,lastCancelReason:'',
+        commandState:'idle',pendingTarget:null,commandTimer:null,statusTimer:null,wearRecoveryTimer:null,
+        reconnectTimer:null,failNextCommand:false,pressureSide:null,safetyResume:'runtime',alertLevel:null
+      };
+    }
+
+    function setupDeviceControls(prefix){
+      const phone=document.getElementById(`${prefix}-phone`);
+      phone.querySelectorAll('.mode-icon').forEach(icon=>icon.textContent='');
+      phone.querySelectorAll('.mode').forEach((mode,index)=>{mode.dataset.mode=['stimulation','expression','mixed','letdown'][index];mode.id=`${prefix}-mode-${mode.dataset.mode}`});
+      const strip=phone.querySelector('.level-strip');
+      strip.id=`${prefix}-level-strip`;
+      const buttons=strip.querySelectorAll('button');
+      buttons[0].id=`${prefix}-level-minus`;
+      buttons[1].id=`${prefix}-level-plus`;
+      strip.insertAdjacentHTML('afterend',`<div class="mcv-shortcut"><div class="mcv-shortcut-main"><div class="mcv-shortcut-copy"><span class="mcv-chip">最佳吸力</span><strong id="${prefix}-mcv-saved">已设置</strong><span class="mcv-status" id="${prefix}-mcv-status">使用中</span></div><span class="mcv-relation" id="${prefix}-mcv-relation">调整立即生效；确认后才会更新最佳吸力</span></div><button class="mcv-entry" id="${prefix}-mcv-entry">查看与调整 ›</button></div>`);
+      const meta=phone.querySelector('.device-meta');
+      meta.id=`${prefix}-device-meta`;
+      meta.insertAdjacentHTML('beforeend',`<span class="connection-state" id="${prefix}-connection-state">已连接</span>`);
+      phone.querySelector('.appbar').insertAdjacentHTML('afterend',`<div class="weak-alert-banner" id="${prefix}-weak-alert" role="status" aria-live="assertive"><i>!</i><button class="weak-alert-main" id="${prefix}-weak-alert-main"><strong id="${prefix}-weak-alert-title">检测到漏气</strong><span>吸乳继续进行，点击查看调整方法</span></button><span class="weak-alert-chevron">›</span><button class="weak-alert-close" id="${prefix}-weak-alert-close" aria-label="关闭提醒">×</button></div>`);
+      const persistent=document.getElementById(`${prefix}-persistent`);
+      const wearItems=persistent.querySelectorAll('.persistent-row span');
+      wearItems[0].id=`${prefix}-wear-left`;
+      wearItems[1].id=`${prefix}-wear-right`;
+      persistent.querySelector('.live').id=`${prefix}-wear-live`;
+      persistent.insertAdjacentHTML('afterend',`<div class="wear-alert" id="${prefix}-wear-alert" aria-live="polite"></div>`);
+      document.getElementById(`${prefix}-pause`).onclick=()=>togglePause(prefix);
+      bindModeControls(prefix);
+      setupDemoControls(prefix);
+      renderConnection(prefix);
+      renderWear(prefix);
+    }
+
+    function setupDemoControls(prefix){
+      const resetRow=document.getElementById(`${prefix}-reset`).parentElement;
+      resetRow.insertAdjacentHTML('afterbegin',`<div class="demo-controls" id="${prefix}-demo-controls"><span>场景演示 · 不属于正式设备页</span><button data-action="left">左侧异常</button><button data-action="right">右侧异常</button>${prefix==='first'?'<button data-action="fit-abnormal">检测异常结果页</button>':''}<button data-action="weak-leak">弱提醒</button><button data-action="strong-leak">强提醒 · 终止吸乳</button><button data-action="restore">恢复正常</button><button data-action="pressure">压力过高</button><button data-action="failure">指令失败</button><button data-action="connection" id="${prefix}-connection-demo">模拟离线</button></div>`);
+      const controls=document.getElementById(`${prefix}-demo-controls`);
+      controls.querySelector('[data-action="left"]').onclick=()=>triggerWearAbnormal(prefix,'left');
+      controls.querySelector('[data-action="right"]').onclick=()=>triggerWearAbnormal(prefix,'right');
+      controls.querySelector('[data-action="fit-abnormal"]')?.addEventListener('click',previewFirstFitAbnormal);
+      controls.querySelector('[data-action="weak-leak"]').onclick=()=>previewWeakLeak(prefix);
+      controls.querySelector('[data-action="strong-leak"]').onclick=()=>previewStrongLeak(prefix);
+      controls.querySelector('[data-action="restore"]').onclick=()=>restoreWear(prefix);
+      controls.querySelector('[data-action="pressure"]').onclick=()=>triggerPressureHigh(prefix,'left');
+      controls.querySelector('[data-action="failure"]').onclick=()=>simulateCommandFailure(prefix);
+      controls.querySelector('[data-action="connection"]').onclick=()=>toggleConnection(prefix);
+    }
+
+    function setTags(prefix,active){document.querySelectorAll(`[id^="${prefix}-tag-"]`).forEach((tag,index)=>tag.classList.toggle('current',index+1===active))}
+    function showToast(prefix,copy){const toast=document.getElementById(`${prefix}-toast`);document.getElementById(`${prefix}-toast-copy`).textContent=copy;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+    function setLevelDisplay(prefix,level){document.getElementById(`${prefix}-base-level`).textContent=level;document.getElementById(`${prefix}-base-level-main`).textContent=level}
+
+    function refreshMcvCard(prefix,state='steady'){
+      const saved=savedMcv[prefix];
+      const current=runningLevel[prefix];
+      const pump=runtime[prefix];
+      const savedEl=document.getElementById(`${prefix}-mcv-saved`);
+      const status=document.getElementById(`${prefix}-mcv-status`);
+      const relation=document.getElementById(`${prefix}-mcv-relation`);
+      const shortcut=document.getElementById(`${prefix}-mcv-entry`)?.closest('.mcv-shortcut');
+      if(!savedEl||!status||!relation)return;
+      savedEl.textContent='已设置';
+      let statusCopy='使用中';
+      let relationCopy='调整立即生效；确认后才会更新最佳吸力';
+      let pending=false;
+      if(!pump.connected){statusCopy='设备离线';relationCopy='重连后将以设备实际状态同步';shortcut?.classList.add('is-disabled')}
+      else if(pump.mode!=='stimulation'){statusCopy='已暂停验证';relationCopy='最佳吸力仅在刺激模式下验证';shortcut?.classList.add('is-disabled')}
+      else {
+        shortcut?.classList.remove('is-disabled');
+        if(state==='waiting'||pump.candidateState==='counting'){statusCopy='体验中';relationCopy='当前档位已生效，稳定使用 1 分钟后可选择更新';pending=true}
+        else if(state==='wear-paused'||pump.candidateState==='wear-paused'){statusCopy='计时暂停';relationCopy='佩戴恢复正常后，将从头重新稳定计时';pending=true}
+        else if(state==='once'){statusCopy='仅本次';relationCopy='当前档位仅用于本次吸乳，最佳吸力未更新'}
+        else if(state==='updated'){statusCopy='已更新';relationCopy='后续进入刺激模式时将优先使用该档位'}
+        else if(state==='synced'){statusCopy='已同步';relationCopy='已按设备实际档位更新页面，不自动修改最佳吸力'}
+        else if(state==='cancelled'){statusCopy='未保存';relationCopy=pump.lastCancelReason||'本次候选已取消，最佳吸力未更新'}
+        else if(current!==saved){statusCopy='未保存';relationCopy=pump.lastCancelReason||'当前档位已生效，最佳吸力尚未更新'}
+      }
+      status.textContent=statusCopy;
+      status.classList.toggle('pending',pending);
+      relation.textContent=relationCopy;
+    }
+
+    function openRunningSheet(prefix,markup){document.getElementById(`${prefix}-scrim`).classList.remove('hidden');const sheet=document.getElementById(`${prefix}-sheet`);sheet.classList.remove('hidden','onboarding-flow');sheet.innerHTML=markup}
+    function closeRunningSheet(prefix){document.getElementById(`${prefix}-scrim`).classList.add('hidden');document.getElementById(`${prefix}-sheet`).classList.add('hidden')}
+
+    function setRunning(prefix,level,keepSheet=false,saveAsBest=false){
+      const pump=runtime[prefix];
+      if(saveAsBest)savedMcv[prefix]=level;
+      runningLevel[prefix]=level;
+      pump.deviceLevel=level;
+      pump.phase='running';
+      pump.mode='stimulation';
+      pump.connected=true;
+      pump.connectionState='online';
+      pump.wear.left='normal';
+      pump.wear.right='normal';
+      pump.alertLevel=null;
+      pump.lastCancelReason='';
+      syncSuppressed[prefix]=false;
+      clearCandidate(prefix);
+      if(!keepSheet)closeRunningSheet(prefix);
+      document.getElementById(`${prefix}-persistent`).classList.add('show');
+      const mainCta=document.getElementById(`${prefix}-main-cta`);
+      mainCta.disabled=false;
+      mainCta.textContent='长按结束吸乳';
+      mainCta.classList.add('running');
+      mainCta.onclick=()=>showToast(prefix,'请长按结束吸乳');
+      const pause=document.getElementById(`${prefix}-pause`);
+      pause.classList.add('show');
+      pause.classList.remove('is-paused');
+      pause.textContent='Ⅱ';
+      hideWeakLeakAlert(prefix);
+      document.getElementById(`${prefix}-time`).textContent='吸乳时长：01 分 18 秒';
+      setLevelDisplay(prefix,level);
+      setActiveMode(prefix,'stimulation');
+      renderConnection(prefix);
+      renderWear(prefix);
+      refreshMcvCard(prefix);
+      bindRunningControls(prefix);
+      setTags(prefix,4);
+      updateControlAvailability(prefix);
+    }
+
+    function showRunningMcv(prefix,reset=true){
+      if(runtime[prefix].phase!=='running'||runtime[prefix].mode!=='stimulation'||!runtime[prefix].connected)return;
+      if(reset)mcvDraft[prefix]=runningLevel[prefix];
+      openRunningSheet(prefix,mcvMarkup(prefix,mcvDraft[prefix],'recalibrate'));
+      document.getElementById(`${prefix}-mcv-confirm`).textContent='应用当前档位并继续';
+      document.getElementById(`${prefix}-mcv-cancel`).textContent='关闭，不再调整';
+      bindRunningMcv(prefix);
+      document.getElementById(`${prefix}-mcv-help`).onclick=()=>showRunningMcvGuide(prefix);
+      document.getElementById(`${prefix}-mcv-cancel`).onclick=()=>cancelRunningMcv(prefix);
+      document.getElementById(`${prefix}-mcv-close`).onclick=()=>cancelRunningMcv(prefix);
+    }
+
+    function bindRunningMcv(prefix){
+      document.getElementById(`${prefix}-mcv-minus`).onclick=()=>requestLevel(prefix,Math.max(1,runningLevel[prefix]-1),true);
+      document.getElementById(`${prefix}-mcv-plus`).onclick=()=>requestLevel(prefix,Math.min(15,runningLevel[prefix]+1),true);
+      document.getElementById(`${prefix}-mcv-confirm`).onclick=()=>{closeRunningSheet(prefix);showToast(prefix,`当前 ${runningLevel[prefix]} 档已生效，稳定后可选择更新最佳吸力`)};
+    }
+
+    function showRunningMcvGuide(prefix){openRunningSheet(prefix,mcvGuideMarkup(prefix,mcvDraft[prefix]));const back=()=>showRunningMcv(prefix,false);document.getElementById(`${prefix}-mcv-guide-back`).onclick=back;document.getElementById(`${prefix}-mcv-guide-continue`).onclick=back}
+    function cancelRunningMcv(prefix){closeRunningSheet(prefix);showToast(prefix,`当前 ${runningLevel[prefix]} 档继续生效，最佳吸力未自动更新`)}
+
+    function showMcvSync(prefix){
+      const pump=runtime[prefix];
+      if(!canValidateCandidate(prefix)||runningLevel[prefix]===savedMcv[prefix]||syncSuppressed[prefix])return;
+      pump.candidateState='ready';
+      refreshMcvCard(prefix,'waiting');
+      openRunningSheet(prefix,mcvSyncMarkup(prefix,runningLevel[prefix],savedMcv[prefix]));
+      document.getElementById(`${prefix}-sync-update`).onclick=()=>{
+        savedMcv[prefix]=runningLevel[prefix];
+        pump.candidateState='none';
+        pump.candidateLevel=null;
+        pump.lastCancelReason='';
+        refreshMcvCard(prefix,'updated');
+        closeRunningSheet(prefix);
+        showToast(prefix,`最佳吸力已更新为 ${savedMcv[prefix]} 档`);
+      };
+      document.getElementById(`${prefix}-sync-once`).onclick=()=>chooseOnce(prefix);
+      document.getElementById(`${prefix}-sync-close`).onclick=()=>chooseOnce(prefix,false);
+    }
+
+    function chooseOnce(prefix,notify=true){
+      const pump=runtime[prefix];
+      syncSuppressed[prefix]=!notify;
+      pump.candidateState='none';
+      pump.candidateLevel=null;
+      pump.lastCancelReason='本次继续当前档位，最佳吸力未更新';
+      refreshMcvCard(prefix,'once');
+      closeRunningSheet(prefix);
+      if(notify)showToast(prefix,`本次使用 ${runningLevel[prefix]} 档；最佳吸力仍为 ${savedMcv[prefix]} 档`);
+    }
+
+    function canValidateCandidate(prefix){
+      const pump=runtime[prefix];
+      return pump.phase==='running'&&pump.mode==='stimulation'&&pump.connected&&pump.connectionState==='online'&&pump.wear.left==='normal'&&pump.wear.right==='normal'&&!pump.pressureSide;
+    }
+
+    function clearCandidate(prefix,state='none',reason=''){
+      clearTimeout(syncTimers[prefix]);
+      syncTimers[prefix]=null;
+      const pump=runtime[prefix];
+      pump.candidateState=state;
+      if(state==='none'||state==='cancelled')pump.candidateLevel=null;
+      if(reason)pump.lastCancelReason=reason;
+    }
+
+    function startCandidateTimer(prefix){
+      const pump=runtime[prefix];
+      clearTimeout(syncTimers[prefix]);
+      if(runningLevel[prefix]===savedMcv[prefix]){clearCandidate(prefix);pump.lastCancelReason='';refreshMcvCard(prefix);return}
+      if(syncSuppressed[prefix]){clearCandidate(prefix);refreshMcvCard(prefix,'once');return}
+      if(!canValidateCandidate(prefix))return;
+      pump.candidateState='counting';
+      pump.candidateLevel=runningLevel[prefix];
+      pump.lastCancelReason='';
+      refreshMcvCard(prefix,'waiting');
+      syncTimers[prefix]=setTimeout(()=>{
+        if(pump.candidateLevel===runningLevel[prefix]&&canValidateCandidate(prefix))showMcvSync(prefix);
+      },DEMO_STABLE_MS);
+    }
+
+    function interruptCandidateForWear(prefix){
+      const pump=runtime[prefix];
+      if(pump.candidateState!=='counting'&&pump.candidateState!=='ready')return;
+      clearTimeout(syncTimers[prefix]);
+      syncTimers[prefix]=null;
+      pump.candidateState='wear-paused';
+      pump.candidateLevel=runningLevel[prefix];
+      pump.lastCancelReason='佩戴异常已中断稳定计时';
+      closeRunningSheet(prefix);
+      refreshMcvCard(prefix,'wear-paused');
+    }
+
+    function resumeCandidateAfterWear(prefix){
+      const pump=runtime[prefix];
+      if(pump.candidateState!=='wear-paused')return;
+      pump.lastCancelReason='佩戴已恢复，稳定计时已重新开始';
+      startCandidateTimer(prefix);
+    }
+
+    function renderCommandStatus(prefix,type='',copy=''){
+      const el=document.getElementById(`${prefix}-level-command`);
+      if(!el)return;
+      el.className=`level-command${type?` ${type}`:''}`;
+      el.textContent=copy;
+      const sheetStatus=document.getElementById(`${prefix}-mcv-command-state`);
+      if(sheetStatus){sheetStatus.className=`mcv-command-state${type==='error'?' error':type==='success'?' success':''}`;sheetStatus.textContent=copy}
+    }
+
+    function requestLevel(prefix,target,fromSheet=false){
+      const pump=runtime[prefix];
+      if(target===runningLevel[prefix])return;
+      if(pump.phase!=='running'||pump.mode!=='stimulation'){showToast(prefix,'最佳吸力仅在刺激模式吸乳中调整');return}
+      if(!pump.connected){showToast(prefix,'设备离线，暂时无法调整档位');return}
+      if(pump.failNextCommand){pump.failNextCommand=false;showToast(prefix,`调整未成功，当前仍为 ${runningLevel[prefix]} 档`);return}
+      clearCandidate(prefix,'none','新调档已重新开始稳定计时');
+      runningLevel[prefix]=target;
+      pump.deviceLevel=target;
+      mcvDraft[prefix]=target;
+      setLevelDisplay(prefix,target);
+      const levelEl=document.getElementById(`${prefix}-mcv-level`);
+      if(fromSheet&&levelEl)levelEl.textContent=target;
+      updateControlAvailability(prefix);
+      startCandidateTimer(prefix);
+    }
+
+    function applyManualLevel(prefix,delta){requestLevel(prefix,Math.max(1,Math.min(15,runningLevel[prefix]+delta)))}
+    function simulateCommandFailure(prefix){
+      const pump=runtime[prefix];
+      if(pump.phase!=='running'||!pump.connected||pump.mode!=='stimulation'){showToast(prefix,'请先进入在线的刺激模式吸乳状态');return}
+      pump.failNextCommand=true;
+      const target=runningLevel[prefix]===15?14:runningLevel[prefix]+1;
+      requestLevel(prefix,target);
+    }
+
+    function wearLabel(side){return side==='left'?'左侧':'右侧'}
+    function renderWear(prefix){
+      const pump=runtime[prefix];
+      const persistent=document.getElementById(`${prefix}-persistent`);
+      if(!persistent)return;
+      const live=document.getElementById(`${prefix}-wear-live`);
+      const alert=document.getElementById(`${prefix}-wear-alert`);
+      const initialFit=(prefix==='first'&&firstState===1)||(prefix==='daily'&&dailyState===1&&dailyWorkflowIndex===1);
+      const strongLeak=pump.alertLevel==='strong'&&pump.phase==='safety';
+      const runningLeak=!initialFit&&!strongLeak&&['running','paused','recovering'].includes(pump.phase);
+      const states=[['left',document.getElementById(`${prefix}-wear-left`)],['right',document.getElementById(`${prefix}-wear-right`)]];
+      let hasAbnormal=false;
+      let hasChecking=false;
+      states.forEach(([side,el])=>{
+        const state=pump.wear[side];
+        hasAbnormal=hasAbnormal||state==='abnormal';
+        hasChecking=hasChecking||state==='checking';
+        el.className=state==='abnormal'?'is-abnormal':state==='checking'?'is-checking':'';
+        el.innerHTML=`<i></i>${wearLabel(side)}${state==='abnormal'?(strongLeak?'严重漏气':runningLeak?'漏气':'佩戴异常'):state==='checking'?'确认中':'正常'}`;
+        const fitBox=document.querySelector(`#${prefix}-sheet .fit-box:nth-child(${side==='left'?1:2})`);
+        if(fitBox){
+          fitBox.classList.toggle('is-abnormal',state==='abnormal');
+          fitBox.classList.toggle('is-checking',state==='checking');
+          fitBox.querySelector('strong').textContent=`${wearLabel(side)}${state==='abnormal'?'佩戴异常':state==='checking'?'检测中':'正常'}`;
+          fitBox.querySelector('small').textContent=state==='abnormal'?'请重新佩戴并检查法兰安装':state==='checking'?'正在确认佩戴与气密状态':'佩戴与气密状态正常';
+        }
+      });
+      persistent.classList.toggle('has-warning',hasAbnormal);
+      persistent.classList.toggle('is-danger',strongLeak);
+      persistent.classList.toggle('is-checking',!hasAbnormal&&hasChecking);
+      if(pump.phase==='paused')live.textContent='● 已暂停';
+      else if(strongLeak)live.textContent='● 吸乳已终止';
+      else if(hasAbnormal)live.textContent='● 需调整佩戴';
+      else if(hasChecking)live.textContent='● 正在确认';
+      else live.textContent='● 全程监测中';
+      if(hasAbnormal){
+        const sides=['left','right'].filter(side=>pump.wear[side]==='abnormal').map(wearLabel).join('、');
+        if(strongLeak){
+          alert.className='wear-alert show critical';
+          alert.innerHTML=`<strong>检测到${sides}持续漏气，设备已停止输出</strong>本次吸乳已终止。请重新佩戴并检查法兰、配件和导管连接后，再开始新一次吸乳。`;
+        }else if(runningLeak){
+          alert.className='wear-alert show leak-warning';
+          alert.innerHTML=`<div class="wear-alert-head"><i>!</i><div><strong>检测到${sides}漏气</strong><span>吸力可能受到影响，设备将继续运行。</span></div></div><p>请检查法兰贴合、配件安装和导管连接。漏气恢复前，最佳吸力稳定计时已暂停。</p><div class="wear-alert-actions"><button id="${prefix}-leak-guide">查看调整方法</button><button class="primary-action" id="${prefix}-leak-recheck">重新检测</button></div>`;
+          document.getElementById(`${prefix}-leak-guide`).onclick=()=>showLeakGuide(prefix);
+          document.getElementById(`${prefix}-leak-recheck`).onclick=()=>restoreWear(prefix);
+        }else{
+          alert.className='wear-alert show';
+          alert.innerHTML=`<strong>${sides}佩戴异常</strong>请重新佩戴并检查法兰与配件安装。设备继续运行，最佳吸力稳定计时已暂停。`;
+        }
+      }else if(hasChecking){
+        alert.className='wear-alert show is-checking';
+        alert.innerHTML='<strong>正在确认佩戴恢复</strong>请保持当前姿势，确认正常后再继续验证最佳吸力。';
+      }else if(pump.phase==='paused'){
+        alert.className='wear-alert show is-checking';
+        alert.innerHTML='<strong>吸乳已暂停</strong>恢复后将先重新确认左右佩戴状态。';
+      }else {
+        alert.className='wear-alert';
+        alert.innerHTML='';
+      }
+      const fitStatus=document.getElementById(`${prefix}-fit-pass`);
+      if(fitStatus&&hasAbnormal){fitStatus.className='fit-auto-status is-paused';fitStatus.innerHTML='<i></i><strong>检测已暂停</strong><span>请先恢复佩戴</span>'}
+      updateControlAvailability(prefix);
+    }
+
+    function triggerWearAbnormal(prefix,side){
+      const pump=runtime[prefix];
+      const initialFit=(prefix==='first'&&firstState===1)||(prefix==='daily'&&dailyState===1&&dailyWorkflowIndex===1);
+      if(!initialFit&&!['running','paused','recovering'].includes(pump.phase)){showToast(prefix,'请先开始佩戴检测或进入吸乳状态');return}
+      clearTimeout(pump.wearRecoveryTimer);
+      pump.wear[side]='abnormal';
+      if(initialFit){
+        if(prefix==='first'){clearFirstFitTimer();showFirstFitAbnormal(side);return}
+        pauseDailyFitDetection();
+      }else{
+        pump.alertLevel='weak';
+        interruptCandidateForWear(prefix);
+        showWeakLeakAlert(prefix,side);
+      }
+      renderWear(prefix);
+      if(!['running','paused','recovering'].includes(pump.phase))showToast(prefix,`${wearLabel(side)}佩戴异常，请重新佩戴并检查配件安装`);
+    }
+
+    function restoreWear(prefix){
+      const pump=runtime[prefix];
+      const hasIssue=pump.wear.left!=='normal'||pump.wear.right!=='normal';
+      if(!hasIssue){showToast(prefix,'左右佩戴状态当前均正常');return}
+      hideWeakLeakAlert(prefix);
+      pump.wear.left='checking';
+      pump.wear.right='checking';
+      renderWear(prefix);
+      const initialFirst=prefix==='first'&&firstState===1;
+      const initialDaily=prefix==='daily'&&dailyState===1&&dailyWorkflowIndex===1;
+      if(initialFirst){restartFirstFitDetection();return}
+      if(initialDaily){resumeDailyFitDetection();return}
+      clearTimeout(pump.wearRecoveryTimer);
+      pump.wearRecoveryTimer=setTimeout(()=>{
+        pump.wear.left='normal';
+        pump.wear.right='normal';
+        pump.alertLevel=null;
+        renderWear(prefix);
+        resumeCandidateAfterWear(prefix);
+        showToast(prefix,'佩戴状态已恢复正常，稳定计时已重新开始');
+      },1100);
+    }
+
+    function pressureMarkup(prefix,side){return `<div class="sheet-inner"><div class="safety-mark">!</div><div class="kicker">安全保护 · 已停止输出</div><h3>检测到${wearLabel(side)}压力过高</h3><p class="sheet-copy">设备已立即停止吸乳并泄压。请重新佩戴并检查法兰、导管与连接位置。</p><div class="safety-list"><strong>未确认的最佳吸力不会保存</strong>本次候选档位、稳定计时和待确认提示均已取消；重新开始前会再次检测左右佩戴状态。</div><button class="primary" id="${prefix}-safety-retry">重新检测并尝试恢复</button><button class="secondary" id="${prefix}-safety-end">结束本次吸乳</button></div>`}
+    function strongLeakMarkup(prefix,side){return `<div class="sheet-inner"><div class="safety-mark leak-stop">!</div><div class="kicker">强提醒 · 已停止输出</div><h3>检测到${wearLabel(side)}持续漏气</h3><p class="sheet-copy">为避免吸力持续流失，设备已立即停止输出并结束本次吸乳。</p><div class="stop-result"><i>■</i><div><strong>本次吸乳已终止</strong><span>请重新佩戴，并检查法兰贴合、配件安装和导管连接后，再开始新一次吸乳。</span></div></div><button class="primary" id="${prefix}-strong-guide">查看调整方法</button><button class="secondary" id="${prefix}-strong-close">我知道了</button></div>`}
+    function leakGuideMarkup(prefix,sides,strong=false){return `<button class="close" id="${prefix}-leak-close">×</button><div class="sheet-inner"><div class="kicker">${strong?'吸乳已终止 · 调整指引':'吸乳中 · 弱提醒'}</div><h3>调整${sides}佩戴</h3><p class="sheet-copy">请按顺序检查以下位置。${strong?'完成调整后，可返回控制页重新开始吸乳。':'调整完成后，需要重新检测佩戴与气密状态。'}</p><div class="guide-cards"><div class="guide-card"><b>1</b><div><strong>确认乳头保持居中</strong><span>确保乳头位于法兰通道中央，没有贴住或摩擦通道边缘。</span></div></div><div class="guide-card"><b>2</b><div><strong>重新贴合法兰边缘</strong><span>确认法兰与乳房表面贴合完整，没有头发、衣物或明显缝隙。</span></div></div><div class="guide-card"><b>3</b><div><strong>检查配件和导管连接</strong><span>确认配件已安装到位，导管与接口没有松动或折弯。</span></div></div></div><button class="primary" id="${prefix}-leak-retry">${strong?'返回控制页':'我已调整，重新检测'}</button><button class="secondary" id="${prefix}-leak-later">${strong?'暂不处理':'暂不处理，继续吸乳'}</button></div>`}
+    function showLeakGuide(prefix,strong=runtime[prefix].alertLevel==='strong'){const sides=['left','right'].filter(side=>runtime[prefix].wear[side]==='abnormal').map(wearLabel).join('、')||'异常侧';openRunningSheet(prefix,leakGuideMarkup(prefix,sides,strong));const close=()=>closeRunningSheet(prefix);document.getElementById(`${prefix}-leak-close`).onclick=close;document.getElementById(`${prefix}-leak-later`).onclick=close;document.getElementById(`${prefix}-leak-retry`).onclick=()=>{close();if(!strong)restoreWear(prefix)}}
+    function showWeakLeakAlert(prefix,side){const banner=document.getElementById(`${prefix}-weak-alert`);banner.style.display='flex';document.getElementById(`${prefix}-weak-alert-title`).textContent=`检测到${wearLabel(side)}漏气`;requestAnimationFrame(()=>banner.classList.add('show'));document.getElementById(`${prefix}-weak-alert-main`).onclick=()=>showLeakGuide(prefix,false);document.getElementById(`${prefix}-weak-alert-close`).onclick=event=>{event.stopPropagation();hideWeakLeakAlert(prefix)}}
+    function hideWeakLeakAlert(prefix,immediate=false){const banner=document.getElementById(`${prefix}-weak-alert`);if(!banner)return;banner.classList.remove('show');if(immediate)banner.style.display='none'}
+    function prepareRunningPreview(prefix){if(prefix==='first'){clearFirstFitTimer();clearInterval(firstContinueTimer);firstState=3}else{clearTimeout(dailyWorkflowTimer);dailyState=2;dailyWorkflowIndex=4;document.getElementById('daily-hero').classList.remove('workflow-active')}setRunning(prefix,savedMcv[prefix])}
+    function previewWeakLeak(prefix){prepareRunningPreview(prefix);triggerWearAbnormal(prefix,'right')}
+    function previewStrongLeak(prefix){prepareRunningPreview(prefix);triggerStrongLeak(prefix,'right')}
+    function triggerStrongLeak(prefix,side='right'){
+      const pump=runtime[prefix];
+      hideWeakLeakAlert(prefix,true);
+      clearTimeout(pump.wearRecoveryTimer);
+      pump.alertLevel='strong';
+      pump.phase='safety';
+      pump.wear[side]='abnormal';
+      cancelPendingCommand(prefix);
+      clearCandidate(prefix,'cancelled','持续漏气已终止本次吸乳');
+      document.getElementById(`${prefix}-pause`).classList.remove('show');
+      const mainCta=document.getElementById(`${prefix}-main-cta`);
+      mainCta.disabled=false;
+      mainCta.classList.remove('running');
+      mainCta.textContent='重新开始吸乳';
+      mainCta.onclick=()=>restartAfterStrongLeak(prefix);
+      document.getElementById(`${prefix}-time`).textContent='本次吸乳已终止';
+      renderWear(prefix);
+      refreshMcvCard(prefix,'cancelled');
+      openRunningSheet(prefix,strongLeakMarkup(prefix,side));
+      document.getElementById(`${prefix}-strong-guide`).onclick=()=>showLeakGuide(prefix,true);
+      document.getElementById(`${prefix}-strong-close`).onclick=()=>closeRunningSheet(prefix);
+      updateControlAvailability(prefix);
+    }
+    function strongRestartMarkup(prefix,countdown){return `<div class="sheet-inner"><div class="recovery-mark">↻</div><div class="kicker">开始前安全检测</div><h3>正在重新检测佩戴状态</h3><p class="sheet-copy">请保持当前姿势。左右两侧均确认正常后，将开始新的吸乳。</p><div class="recovery-status">佩戴与气密检测中 · 倒计时 <b id="${prefix}-strong-countdown">${countdown}</b> 秒</div></div>`}
+    function restartAfterStrongLeak(prefix){const pump=runtime[prefix];pump.alertLevel=null;pump.phase='recovering';pump.wear.left='checking';pump.wear.right='checking';const mainCta=document.getElementById(`${prefix}-main-cta`);mainCta.disabled=true;mainCta.textContent='重新检测中…';openRunningSheet(prefix,strongRestartMarkup(prefix,5));renderWear(prefix);let remaining=5;const timer=setInterval(()=>{remaining-=1;const countdown=document.getElementById(`${prefix}-strong-countdown`);if(countdown)countdown.textContent=remaining;if(remaining>0)return;clearInterval(timer);pump.wear.left='normal';pump.wear.right='normal';setRunning(prefix,savedMcv[prefix]);showToast(prefix,'检测通过，已开始新的吸乳')},1000)}
+    function recoveryMarkup(){return `<div class="sheet-inner"><div class="recovery-mark">↻</div><div class="kicker">安全恢复</div><h3>正在重新检测佩戴状态</h3><p class="sheet-copy">请保持当前姿势。确认左右压力安全后，设备将按安全策略恢复。</p><div class="recovery-status">左右侧检测中 · 未确认的最佳吸力保持不变</div></div>`}
+
+    function triggerPressureHigh(prefix,side='left'){
+      const pump=runtime[prefix];
+      const initialFirst=prefix==='first'&&firstState===1;
+      const initialDaily=prefix==='daily'&&dailyState===1&&dailyWorkflowIndex===1;
+      if(!initialFirst&&!initialDaily&&!['running','paused','recovering'].includes(pump.phase)){showToast(prefix,'请先开始佩戴检测或进入吸乳状态');return}
+      const safetyToast=document.getElementById(`${prefix}-toast`);
+      safetyToast.classList.remove('show');
+      safetyToast.style.display='none';
+      hideWeakLeakAlert(prefix,true);
+      pump.alertLevel=null;
+      pump.safetyResume=initialFirst?'first-fit':initialDaily?'daily-fit':'runtime';
+      pump.pressureSide=side;
+      pump.phase='safety';
+      pump.wear[side]='abnormal';
+      if(initialFirst)clearFirstFitTimer();
+      if(initialDaily)pauseDailyFitDetection();
+      cancelPendingCommand(prefix);
+      clearCandidate(prefix,'cancelled','压力过高已取消本次候选档位');
+      syncSuppressed[prefix]=false;
+      renderWear(prefix);
+      refreshMcvCard(prefix,'cancelled');
+      openRunningSheet(prefix,pressureMarkup(prefix,side));
+      document.getElementById(`${prefix}-safety-retry`).onclick=()=>retryAfterPressure(prefix);
+      document.getElementById(`${prefix}-safety-end`).onclick=()=>endAfterSafety(prefix);
+      updateControlAvailability(prefix);
+    }
+
+    function retryAfterPressure(prefix){
+      const pump=runtime[prefix];
+      pump.alertLevel=null;
+      pump.pressureSide=null;
+      pump.phase='recovering';
+      pump.wear.left='checking';
+      pump.wear.right='checking';
+      openRunningSheet(prefix,recoveryMarkup());
+      renderWear(prefix);
+      setTimeout(()=>{
+        document.getElementById(`${prefix}-toast`).style.display='';
+        pump.wear.left='normal';
+        pump.wear.right='normal';
+        renderWear(prefix);
+        if(pump.safetyResume==='first-fit'){firstFit();return}
+        if(pump.safetyResume==='daily-fit'){resumeDailyFitDetection();return}
+        runningLevel[prefix]=savedMcv[prefix];
+        pump.deviceLevel=savedMcv[prefix];
+        pump.phase='running';
+        setLevelDisplay(prefix,runningLevel[prefix]);
+        closeRunningSheet(prefix);
+        pump.lastCancelReason='安全恢复后使用已保存最佳吸力；此前候选未保存';
+        refreshMcvCard(prefix,'cancelled');
+        renderWear(prefix);
+        updateControlAvailability(prefix);
+        showToast(prefix,'安全检测通过，已恢复吸乳；最佳吸力未改变');
+      },1400);
+    }
+
+    function endAfterSafety(prefix){
+      const pump=runtime[prefix];
+      pump.alertLevel=null;
+      pump.phase='stopped';
+      document.getElementById(`${prefix}-toast`).style.display='';
+      closeRunningSheet(prefix);
+      document.getElementById(`${prefix}-pause`).classList.remove('show');
+      const mainCta=document.getElementById(`${prefix}-main-cta`);
+      mainCta.disabled=true;
+      mainCta.textContent='吸乳已结束';
+      renderWear(prefix);
+      updateControlAvailability(prefix);
+    }
+
+    function cancelPendingCommand(prefix){
+      const pump=runtime[prefix];
+      clearTimeout(pump.commandTimer);
+      clearTimeout(pump.statusTimer);
+      pump.commandState='idle';
+      pump.pendingTarget=null;
+      renderCommandStatus(prefix);
+    }
+
+    function renderConnection(prefix){
+      const pump=runtime[prefix];
+      const meta=document.getElementById(`${prefix}-device-meta`);
+      const state=document.getElementById(`${prefix}-connection-state`);
+      if(!meta||!state)return;
+      meta.classList.toggle('is-offline',pump.connectionState==='offline');
+      state.className=`connection-state${pump.connectionState==='offline'?' offline':pump.connectionState==='syncing'?' syncing':''}`;
+      state.textContent=pump.connectionState==='offline'?'已离线':pump.connectionState==='syncing'?'同步中':'已连接';
+      const demo=document.getElementById(`${prefix}-connection-demo`);
+      if(demo)demo.textContent=pump.connectionState==='offline'?'模拟重连':pump.connectionState==='syncing'?'正在重连…':'模拟离线';
+    }
+
+    function toggleConnection(prefix){
+      const pump=runtime[prefix];
+      if(!['running','paused'].includes(pump.phase)){showToast(prefix,'请先进入吸乳状态');return}
+      if(pump.connectionState==='syncing')return;
+      if(pump.connected){
+        pump.connected=false;
+        pump.connectionState='offline';
+        cancelPendingCommand(prefix);
+        clearCandidate(prefix,'cancelled','设备离线已取消本次候选档位');
+        closeRunningSheet(prefix);
+        renderConnection(prefix);
+        renderCommandStatus(prefix,'error','设备已离线，App 暂停发送控制指令');
+        refreshMcvCard(prefix,'cancelled');
+        updateControlAvailability(prefix);
+        showToast(prefix,'设备已离线；设备本地继续运行，App 等待重连');
+        return;
+      }
+      pump.connectionState='syncing';
+      renderConnection(prefix);
+      renderCommandStatus(prefix,'syncing','正在重连并同步设备实际状态…');
+      updateControlAvailability(prefix);
+      clearTimeout(pump.reconnectTimer);
+      pump.reconnectTimer=setTimeout(()=>{
+        pump.connected=true;
+        pump.connectionState='online';
+        runningLevel[prefix]=pump.deviceLevel;
+        setLevelDisplay(prefix,pump.deviceLevel);
+        pump.lastCancelReason='重连后已按 MCU 实际档位同步；不会自动更新最佳吸力';
+        renderConnection(prefix);
+        renderCommandStatus(prefix,'success',`状态已同步，设备当前 ${pump.deviceLevel} 档`);
+        refreshMcvCard(prefix,'synced');
+        updateControlAvailability(prefix);
+        showToast(prefix,`已重连并同步设备实际 ${pump.deviceLevel} 档`);
+        pump.statusTimer=setTimeout(()=>renderCommandStatus(prefix),1600);
+      },1200);
+    }
+
+    function bindModeControls(prefix){document.querySelectorAll(`#${prefix}-phone .mode`).forEach(mode=>mode.onclick=()=>switchMode(prefix,mode.dataset.mode))}
+    function setActiveMode(prefix,mode){document.querySelectorAll(`#${prefix}-phone .mode`).forEach(item=>item.classList.toggle('active',item.dataset.mode===mode))}
+    function switchMode(prefix,mode){
+      const pump=runtime[prefix];
+      if(pump.phase!=='running'||!pump.connected||pump.commandState==='adjusting')return;
+      if(mode===pump.mode)return;
+      pump.mode=mode;
+      setActiveMode(prefix,mode);
+      const copyMap={stimulation:'刺激模式，用于建立奶阵并验证最佳吸力。',expression:'吸乳模式，当前最佳吸力候选已取消。',mixed:'混合模式，当前最佳吸力候选已取消。',letdown:'泌乳启动程序，当前最佳吸力候选已取消。'};
+      document.querySelector(`#${prefix}-phone .mode-copy`).textContent=copyMap[mode];
+      if(mode!=='stimulation'){
+        clearCandidate(prefix,'cancelled','切换模式已取消本次候选档位');
+        closeRunningSheet(prefix);
+        refreshMcvCard(prefix,'cancelled');
+        showToast(prefix,'已切换模式；未确认的最佳吸力候选已取消');
+      }else {
+        pump.lastCancelReason=runningLevel[prefix]===savedMcv[prefix]?'':'返回刺激模式后需再次调档，才会重新验证最佳吸力';
+        refreshMcvCard(prefix,runningLevel[prefix]===savedMcv[prefix]?'steady':'cancelled');
+      }
+      updateControlAvailability(prefix);
+    }
+
+    function togglePause(prefix){
+      const pump=runtime[prefix];
+      if(pump.phase==='running'){
+        pump.phase='paused';
+        clearCandidate(prefix,'cancelled','暂停吸乳已取消本次候选档位');
+        closeRunningSheet(prefix);
+        const pause=document.getElementById(`${prefix}-pause`);
+        pause.classList.add('is-paused');
+        pause.textContent='▶';
+        document.getElementById(`${prefix}-main-cta`).textContent='吸乳已暂停';
+        refreshMcvCard(prefix,'cancelled');
+        renderWear(prefix);
+        updateControlAvailability(prefix);
+        return;
+      }
+      if(pump.phase!=='paused')return;
+      pump.phase='recovering';
+      pump.wear.left='checking';
+      pump.wear.right='checking';
+      const pause=document.getElementById(`${prefix}-pause`);
+      pause.classList.remove('is-paused');
+      pause.textContent='Ⅱ';
+      renderCommandStatus(prefix,'syncing','恢复前正在重新确认佩戴状态…');
+      renderWear(prefix);
+      updateControlAvailability(prefix);
+      setTimeout(()=>{
+        pump.wear.left='normal';
+        pump.wear.right='normal';
+        pump.phase='running';
+        document.getElementById(`${prefix}-main-cta`).textContent='长按结束吸乳';
+        renderCommandStatus(prefix,'success','佩戴确认正常，已恢复吸乳');
+        renderWear(prefix);
+        refreshMcvCard(prefix,runningLevel[prefix]===savedMcv[prefix]?'steady':'cancelled');
+        updateControlAvailability(prefix);
+        pump.statusTimer=setTimeout(()=>renderCommandStatus(prefix),1400);
+      },1300);
+    }
+
+    function updateControlAvailability(prefix){
+      const pump=runtime[prefix];
+      const enabled=pump.phase==='running'&&pump.connected&&pump.connectionState==='online'&&pump.mode==='stimulation'&&pump.commandState!=='adjusting'&&!pump.pressureSide;
+      document.getElementById(`${prefix}-level-strip`)?.classList.toggle('is-locked',!enabled);
+      document.getElementById(`${prefix}-level-strip`)?.classList.toggle('is-busy',pump.commandState==='adjusting');
+      document.getElementById(`${prefix}-mcv-entry`)?.toggleAttribute('disabled',!enabled);
+      document.querySelectorAll(`#${prefix}-phone .mode`).forEach(mode=>mode.classList.toggle('is-disabled',pump.phase!=='running'||!pump.connected||pump.commandState==='adjusting'));
+      const controls=document.getElementById(`${prefix}-demo-controls`);
+      if(!controls)return;
+      const initialFit=(prefix==='first'&&firstState===1)||(prefix==='daily'&&dailyState===1&&dailyWorkflowIndex===1);
+      const canWear=initialFit||['running','paused','recovering'].includes(pump.phase);
+      controls.querySelector('[data-action="left"]').disabled=!canWear;
+      controls.querySelector('[data-action="right"]').disabled=!canWear;
+      controls.querySelector('[data-action="restore"]').disabled=!canWear;
+      controls.querySelector('[data-action="pressure"]').disabled=!canWear;
+      controls.querySelector('[data-action="failure"]').disabled=!enabled;
+      controls.querySelector('[data-action="connection"]').disabled=!['running','paused'].includes(pump.phase);
+    }
+
+    function bindRunningControls(prefix){
+      document.getElementById(`${prefix}-mcv-entry`).onclick=()=>showRunningMcv(prefix);
+      document.getElementById(`${prefix}-level-minus`).onclick=()=>applyManualLevel(prefix,-1);
+      document.getElementById(`${prefix}-level-plus`).onclick=()=>applyManualLevel(prefix,1);
+    }
+
+    let firstState=0,firstLevel=3,firstFlangeSlide=0,firstContinueTimer=null,firstFitTimer=null;
+    const firstSheet=document.getElementById('first-sheet');
+    function renderFlangeSlide(){const slide=flangeSlides[firstFlangeSlide];document.getElementById('first-flange-image').src=slide.image;document.getElementById('first-flange-image').alt=slide.alt;document.getElementById('first-flange-title').textContent=slide.title;document.getElementById('first-flange-copy').textContent=slide.copy;document.getElementById('first-flange-counter').textContent=`${firstFlangeSlide+1} / ${flangeSlides.length}`;document.querySelectorAll('#first-flange-dots .flange-dot').forEach((dot,index)=>dot.classList.toggle('active',index===firstFlangeSlide));const actions=document.getElementById('first-flange-actions');actions.classList.toggle('single',firstFlangeSlide===0);document.getElementById('first-flange-next').textContent=firstFlangeSlide===flangeSlides.length-1?'开始吸乳':'下一步'}
+    function bindFlangeSlides(){document.getElementById('first-flange-back').onclick=()=>{if(firstFlangeSlide>0){firstFlangeSlide--;renderFlangeSlide()}};document.getElementById('first-flange-next').onclick=()=>{if(firstFlangeSlide===flangeSlides.length-1){firstFit();return}firstFlangeSlide++;renderFlangeSlide()};document.querySelectorAll('#first-flange-dots .flange-dot').forEach(dot=>dot.onclick=()=>{firstFlangeSlide=Number(dot.dataset.index);renderFlangeSlide()})}
+    function firstFlange(){firstState=0;firstFlangeSlide=0;runtime.first.phase='onboarding-flange';setTags('first',1);document.getElementById('first-scrim').classList.remove('hidden');firstSheet.classList.remove('hidden');firstSheet.classList.add('onboarding-flow');firstSheet.innerHTML=flangeMarkup();bindFlangeSlides();updateControlAvailability('first')}
+    function clearFirstFitTimer(){clearInterval(firstFitTimer);clearTimeout(firstFitTimer);firstFitTimer=null}
+    function showFirstFitResult(){runtime.first.wear.left='normal';runtime.first.wear.right='normal';renderWear('first');const boxes=firstSheet.querySelectorAll('.fit-box');boxes.forEach((box,index)=>{box.classList.remove('is-checking','is-abnormal');box.classList.add('passed');box.querySelector('strong').textContent=index===0?'左侧通过':'右侧通过';box.querySelector('small').textContent='佩戴稳定，气密正常'});const progress=document.getElementById('first-fit-progress');progress.classList.add('passed');firstSheet.querySelector('h3').textContent='佩戴与气密检测通过';firstSheet.querySelector('.sheet-copy').textContent='左右两侧佩戴稳定、气密正常，即将进入最佳吸力设置。';firstSheet.querySelector('.fit-footer').textContent='检测结果正常，即将自动进入下一步';const status=document.getElementById('first-fit-pass');status.className='fit-auto-status passed';status.innerHTML='<i>✓</i><strong>检测通过</strong><span>即将进入下一步</span>';firstFitTimer=setTimeout(firstMcv,850)}
+    function showFirstFitAbnormal(side='right'){clearFirstFitTimer();const other=side==='left'?'right':'left';runtime.first.phase='initial-fit';runtime.first.wear[side]='abnormal';runtime.first.wear[other]='normal';renderWear('first');const boxes=firstSheet.querySelectorAll('.fit-box');boxes.forEach((box,index)=>{const boxSide=index===0?'left':'right';box.classList.remove('is-checking','is-abnormal','passed');if(boxSide===side){box.classList.add('is-abnormal');box.querySelector('strong').textContent=`${wearLabel(side)}佩戴异常`;box.querySelector('small').textContent='气密状态异常，请重新佩戴'}else{box.classList.add('passed');box.querySelector('strong').textContent=`${wearLabel(other)}通过`;box.querySelector('small').textContent='佩戴稳定，气密正常'}});firstSheet.querySelector('h3').textContent=`检测到${wearLabel(side)}佩戴异常`;firstSheet.querySelector('.sheet-copy').textContent=`${wearLabel(side)}未形成稳定气密，检测未通过。请重新佩戴并检查法兰尺寸与配件安装。`;const progress=document.getElementById('first-fit-progress');progress.classList.remove('running','passed');progress.classList.add('abnormal');firstSheet.querySelector('.fit-footer').textContent='检测未通过，调整后需要重新进行 5 秒检测';const status=document.getElementById('first-fit-pass');status.className='fit-auto-status is-action';status.setAttribute('role','button');status.setAttribute('tabindex','0');status.innerHTML='<i>↻</i><strong>重新佩戴并重新检测</strong>';status.onclick=restartFirstFitDetection;status.onkeydown=event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();restartFirstFitDetection()}};updateControlAvailability('first')}
+    function previewFirstFitAbnormal(){document.getElementById('first-scrim').classList.remove('hidden');firstSheet.classList.remove('hidden');firstSheet.classList.add('onboarding-flow');firstFit();clearFirstFitTimer();showFirstFitAbnormal('right')}
+    function startFirstFitCountdown(){clearFirstFitTimer();const progress=document.getElementById('first-fit-progress');if(!progress)return;progress.classList.remove('running','passed');progress.style.width='0';progress.getBoundingClientRect();progress.style.width='';progress.classList.add('running');let remaining=5;const countdown=document.getElementById('first-fit-countdown');if(countdown)countdown.textContent=remaining;firstFitTimer=setInterval(()=>{remaining--;const current=document.getElementById('first-fit-countdown');if(current)current.textContent=Math.max(remaining,0);if(remaining<=0){clearFirstFitTimer();showFirstFitResult()}},1000)}
+    function firstFit(){clearFirstFitTimer();firstState=1;runtime.first.phase='initial-fit';runtime.first.wear.left='checking';runtime.first.wear.right='checking';setTags('first',2);document.getElementById('first-time').textContent='吸乳时长：00 分 00 秒';setLevelDisplay('first',3);firstSheet.innerHTML=fitMarkup('first');renderWear('first');startFirstFitCountdown();updateControlAvailability('first')}
+    function restartFirstFitDetection(){if(firstState!==1)return;runtime.first.phase='initial-fit';runtime.first.wear.left='checking';runtime.first.wear.right='checking';firstSheet.innerHTML=fitMarkup('first');renderWear('first');startFirstFitCountdown();showToast('first','已重新佩戴，正在从头确认左右状态')}
+    function renderFirstMcv(){firstSheet.innerHTML=mcvMarkup('first',firstLevel,'onboarding');bindMcv('first',showFirstContinue,()=>firstLevel,value=>firstLevel=value);document.getElementById('first-mcv-help').onclick=showFirstMcvGuide}
+    function showFirstMcvGuide(){firstSheet.innerHTML=mcvGuideMarkup('first',firstLevel);document.getElementById('first-mcv-guide-back').onclick=renderFirstMcv;document.getElementById('first-mcv-guide-continue').onclick=renderFirstMcv}
+    function firstMcv(){clearFirstFitTimer();runtime.first.phase='onboarding-mcv';runtime.first.wear.left='normal';runtime.first.wear.right='normal';document.getElementById('first-toast').classList.remove('show');document.getElementById('first-time').textContent='吸乳时长：00 分 05 秒';firstState=2;setTags('first',3);firstLevel=3;renderFirstMcv();updateControlAvailability('first')}
+    function closeFirstContinue(){clearInterval(firstContinueTimer);firstContinueTimer=null;firstSheet.classList.remove('onboarding-flow');closeRunningSheet('first')}
+    function showFirstContinue(){firstState=3;setRunning('first',firstLevel,false,true);firstSheet.classList.remove('onboarding-flow');showToast('first',`最佳吸力已保存为 ${firstLevel} 档，设备已继续吸乳`)}
+
+    const dailyWorkflowContent=[
+      {title:'正在确认法兰指引',copy:'已使用首次设置时确认的法兰方案'},
+      {title:'正在检测佩戴状态',copy:'硬件将自动检测左右两侧，预计 5 秒完成'},
+      {title:'正在应用最佳吸力',copy:'已读取上次保存的最佳吸力：4 档'},
+      {title:'准备继续吸乳',copy:'所有准备步骤即将完成'}
+    ];
+    const dailyWorkflowDurations=[700,5000,700,700];
+    let dailyState=0,dailyWorkflowTimer=null,dailyWorkflowIndex=-1;
+    const dailySheet=document.getElementById('daily-sheet');
+    function renderDailyWorkflow(activeIndex){const workflow=document.getElementById('daily-workflow');workflow.classList.remove('complete');document.getElementById('daily-workflow-title').textContent=dailyWorkflowContent[activeIndex].title;document.getElementById('daily-workflow-copy').textContent=dailyWorkflowContent[activeIndex].copy;workflow.querySelectorAll('.daily-workflow-step').forEach((step,index)=>{step.classList.toggle('done',index<activeIndex);step.classList.toggle('active',index===activeIndex);step.querySelector('b').textContent=index<activeIndex?'✓':index+1});setTags('daily',activeIndex+1)}
+    function completeDailyWorkflow(){const workflow=document.getElementById('daily-workflow');workflow.classList.add('complete');workflow.querySelectorAll('.daily-workflow-step').forEach(step=>{step.classList.remove('active');step.classList.add('done');step.querySelector('b').textContent='✓'});document.getElementById('daily-workflow-title').textContent='准备完成';document.getElementById('daily-workflow-copy').textContent='正在返回设备控制页';dailyWorkflowTimer=setTimeout(dailySaved,650)}
+    function goDailyWorkflowStep(index){clearTimeout(dailyWorkflowTimer);dailyWorkflowIndex=index;if(index>=dailyWorkflowContent.length){completeDailyWorkflow();return}renderDailyWorkflow(index);if(index===1){runtime.daily.phase='initial-fit';runtime.daily.wear.left='checking';runtime.daily.wear.right='checking';renderWear('daily');startDailyFitDetection();return}dailyWorkflowTimer=setTimeout(()=>goDailyWorkflowStep(index+1),dailyWorkflowDurations[index])}
+    function startDailyFitDetection(){clearTimeout(dailyWorkflowTimer);runtime.daily.phase='initial-fit';runtime.daily.wear.left='checking';runtime.daily.wear.right='checking';document.getElementById('daily-workflow-title').textContent='正在检测佩戴状态';document.getElementById('daily-workflow-copy').textContent='左右侧检测中，请保持当前姿势，预计 5 秒完成';renderWear('daily');updateControlAvailability('daily');dailyWorkflowTimer=setTimeout(()=>{runtime.daily.wear.left='normal';runtime.daily.wear.right='normal';renderWear('daily');goDailyWorkflowStep(2)},5000)}
+    function pauseDailyFitDetection(){clearTimeout(dailyWorkflowTimer);dailyWorkflowTimer=null;document.getElementById('daily-workflow-title').textContent='佩戴检测已暂停';document.getElementById('daily-workflow-copy').textContent='请先重新佩戴异常侧；恢复后将从头检测'}
+    function resumeDailyFitDetection(){if(dailyState!==1)return;closeRunningSheet('daily');document.getElementById('daily-hero').classList.add('workflow-active');dailyWorkflowIndex=1;renderDailyWorkflow(1);startDailyFitDetection();showToast('daily','已重新佩戴，正在从头确认左右状态')}
+    function dailyStart(){if(dailyState!==0)return;dailyState=1;runtime.daily.phase='preparing';clearTimeout(dailyWorkflowTimer);document.getElementById('daily-scrim').classList.add('hidden');dailySheet.classList.add('hidden');document.getElementById('daily-hero').classList.add('workflow-active');const mainCta=document.getElementById('daily-main-cta');mainCta.disabled=true;mainCta.textContent='准备中…';document.getElementById('daily-time').textContent='吸乳时长：00 分 00 秒';setLevelDisplay('daily',3);goDailyWorkflowStep(0);updateControlAvailability('daily')}
+    function dailySaved(){dailyState=2;dailyWorkflowIndex=4;document.getElementById('daily-hero').classList.remove('workflow-active');setRunning('daily',savedMcv.daily);showToast('daily','准备完成，已使用保存的最佳吸力 4 档')}
+    function bindMcv(prefix,onConfirm,getLevel,setLevel){const levelEl=document.getElementById(`${prefix}-mcv-level`);const minus=document.getElementById(`${prefix}-mcv-minus`);const plus=document.getElementById(`${prefix}-mcv-plus`);const adjust=delta=>{const current=getLevel();const target=Math.max(1,Math.min(15,current+delta));if(target===current)return;setLevel(target);runtime[prefix].deviceLevel=target;levelEl.textContent=target;setLevelDisplay(prefix,target)};minus.onclick=()=>adjust(-1);plus.onclick=()=>adjust(1);document.getElementById(`${prefix}-mcv-confirm`).onclick=onConfirm}
+
+    setupDeviceControls('first');setupDeviceControls('daily');
+    document.getElementById('first-reset').onclick=()=>location.reload();document.getElementById('daily-main-cta').onclick=dailyStart;document.getElementById('daily-reset').onclick=()=>location.reload();
+    firstFlange();
+  </script>
+</body>
+</html>
